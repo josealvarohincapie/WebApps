@@ -2,10 +2,8 @@ namespace WebAppAsesorias.Models
 {
     public class ClasificacionPeticionModel
     {
-        private string textoAyuda;
-
         public int Id { get; set; }
-        public string TextoAyuda { get => textoAyuda; set => textoAyuda = value; }
+        public string? TextoAyuda { get; set; }
         public int IdTipoPeticion { get; set; }
         public string? DescTipoPeticion { get; set; }
         public int IdAreaDerecho { get; set; }

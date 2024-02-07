@@ -1,0 +1,45 @@
+﻿@section ButtonOption {
+    @UltimusHelper.Button("Botones_Seguimiento", "btn btn-success btn-sm", "fa fa-circle-o", "Consultar", false)
+}
+
+<div id="divSeguimiento">
+    <form id="frmSeguimiento">
+        <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Buscar Radicado</h3>
+        <div class="row">
+            <div class="col-md-6">
+                @UltimusHelper.Dynamic("Seguimiento_NumeroRadicado")
+                @UltimusHelper.Dynamic("Seguimiento_NumeroDocumentoIdentificacion")
+                @UltimusHelper.Dynamic("Seguimiento_Correo")
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+        <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Resultado</h3>
+        <div>
+            <div class="row" id="divResultadoKo">
+                <div class="col-md-12">
+                    <div class="alert alert-danger text-center" role="alert" style="font-size:large; margin-bottom:0;">
+                        <i class="fa fa-thumbs-down"></i>&nbsp;<b>El radicado no se ha encontrado.</b>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="divResultadoOk">
+                <div class="col-md-12">
+                    <div class="alert alert-success text-center" role="alert" style="font-size:large; margin-bottom:0;">
+                        <i class="fa fa-thumbs-up"></i>&nbsp;<b>El radicado se ha encontrado.</b>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    @UltimusHelper.Dynamic("Seguimiento_Resultado")
+                    @UltimusHelper.Dynamic("Seguimiento_SeguimientoDecisionList")
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Modals{
+}
+@section scripts{
+    @Scripts.Render("~/Scripts/CorrUtilitarios/Seguimiento")
+}

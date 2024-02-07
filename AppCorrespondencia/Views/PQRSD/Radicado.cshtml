@@ -1,0 +1,251 @@
+﻿@{
+    bool FileInputReadonly = false;
+}
+@section ButtonOption {
+    @UltimusHelper.Button("Botones_GuardarRadicado", "btn btn-success btn-sm", "fa fa-floppy-o", "Enviar", false)
+}
+
+<form id="frmPqrs">
+    <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;PQRSD</h3>
+    <div class="row" id="divPqrsEntidad">
+        <div class="col-md-6">
+            @*@UltimusHelper.Dynamic("Pqrs_Entidad")
+                @UltimusHelper.Dynamic("Pqrs_Secretaria")*@
+        </div>
+        <div class="col-md-6">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="btn" style="background-color: #78c9c6; width: 100%; color: white" role="button">
+                Datos basicos del peticionario
+            </div>
+            @UltimusHelper.Dynamic("Pqrs_TipoTramite")
+            @UltimusHelper.Dynamic("Pqrs_TipoSolicitante")
+            @UltimusHelper.Dynamic("Pqrs_EsAnonimo")
+            @UltimusHelper.Dynamic("Pqrs_TipoDocumentoIdentificacion")
+            @UltimusHelper.Dynamic("Pqrs_NumeroDocumentoIdentificacion")
+            @UltimusHelper.Dynamic("Pqrs_NombreCompleto")
+            @UltimusHelper.Dynamic("Pqrs_EstadoCivil")
+            @UltimusHelper.Dynamic("Pqrs_NivelEstudios")
+            @UltimusHelper.Dynamic("Pqrs_Correo")
+            @UltimusHelper.Dynamic("Pqrs_RepetirCorreo")
+            @UltimusHelper.Dynamic("Pqrs_Telefono")
+            @UltimusHelper.Dynamic("Pqrs_Direccion")
+            @UltimusHelper.Dynamic("Pqrs_Pais")
+            @UltimusHelper.Dynamic("Pqrs_Departamento")
+            @UltimusHelper.Dynamic("Pqrs_Ciudad")
+            @UltimusHelper.Dynamic("Pqrs_Discapacidad")
+            @UltimusHelper.Dynamic("Pqrs_SituacionDiscapacidad")
+        </div>
+        <div class="col-md-6">
+            <div class="btn text-white" style="background-color: #78c9c6; width: 100%; color: white" role="button">
+                Datos enfoques diferenciales y de genero
+            </div>
+            @UltimusHelper.Dynamic("Pqrs_GrupoEtnicoReconoce")
+            @UltimusHelper.Dynamic("Pqrs_GrupoEtnicoReconoceSi")
+            @UltimusHelper.Dynamic("Pqrs_GrupoEtnico")
+            @UltimusHelper.Dynamic("Pqrs_GrupoEtnicoIndigenaComunidad")
+            @UltimusHelper.Dynamic("Pqrs_GrupoEtnicoIndigenaTieneCargo")
+            @UltimusHelper.Dynamic("Pqrs_GrupoEtnicoIndigenaTieneCargoSi")
+            @UltimusHelper.Dynamic("Pqrs_GrupoEtnicoCual")
+            @UltimusHelper.Dynamic("Pqrs_GrupoEtnicoConsejoComunitario")
+            @UltimusHelper.Dynamic("Pqrs_GrupoEtnicoTerritorioColectivo")
+            @UltimusHelper.Dynamic("Pqrs_Sexo")
+            @UltimusHelper.Dynamic("Pqrs_Genero")
+            @UltimusHelper.Dynamic("Pqrs_OrientacionSexual")
+            @UltimusHelper.Dynamic("Pqrs_Procedencia")
+            @UltimusHelper.Dynamic("Pqrs_RangoEdad")
+        </div>
+        <div class="col-md-12">
+            <div class="btn text-white" style="background-color: #78c9c6; width: 100%; color: white" role="button">
+                Datos de la solicitud
+            </div>
+        </div>
+        <div class="col-md-6">
+            @UltimusHelper.Dynamic("Pqrs_Asunto")
+            @UltimusHelper.Dynamic("Pqrs_MedioRespuesta")
+            @UltimusHelper.Dynamic("Pqrs_FechaHechos")
+            @UltimusHelper.Dynamic("Pqrs_TipoPqrs")
+            @UltimusHelper.Dynamic("Pqrs_FechaHechos")
+            @UltimusHelper.Dynamic("Pqrs_DepartamentoHechos")
+            @UltimusHelper.Dynamic("Pqrs_MunicipioHechos")
+            <div style="text-align:center; font-size:1.2em;">
+                <span style='font-size:12px;line-height:115%;font-family:"Verdana",sans-serif;color:#0070C0;cursor:pointer; '>
+                    <a href="https://defensoria.gov.co/condiciones-de-uso" target="_blank">
+                        T&eacute;rminos, condiciones y
+                        pol&iacute;tica de tratamiento de datos personales.
+                    </a>
+                </span>
+                    @*<u>
+                <span style='font-size:12px;line-height:115%;font-family:"Verdana",sans-serif;color:#0070C0;cursor:pointer; '
+                      data-toggle="modal" data-target="#ModalTerminos">
+                    T&eacute;rminos, condiciones y
+                    pol&iacute;tica de tratamiento de datos personales.
+                </span>
+            </u>*@
+            </div>
+            @UltimusHelper.Dynamic("AceptaPolitica_Acepto")
+            <div class="row text-center">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-8 ">
+                    <div class="g-recaptcha text-center" data-sitekey="6LeWifolAAAAAAr4pSCwVHqbEKaaiagB6E979Yy0"></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            @UltimusHelper.Dynamic("Pqrs_Resumen")
+            @UltimusHelper.Dynamic("Pqrs_DescripcionHechos")
+            @UltimusHelper.Dynamic("Pqrs_DescripcionSolicitud")
+            <div class="form-group">
+                <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label ControlsForms">&nbsp;</label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 input-group">
+                    <div class="g-recaptcha" data-sitekey=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<form id="frmPqrsDocumento">
+    <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Anexos del PQRSD</h3>
+
+
+    @if (!FileInputReadonly)
+    {
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+                @UltimusHelper.Dynamic("PqrsDocumento_Archivo")
+                @UltimusHelper.Dynamic("PqrsDocumento_RutaFisicaArchivo")
+                @UltimusHelper.Dynamic("PqrsDocumento_RutaVirtualArchivo")
+                @UltimusHelper.Dynamic("PqrsDocumento_TamanoArchivo")
+                @UltimusHelper.Dynamic("PqrsDocumento_TituloArchivo")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="text-align:right;">
+                @UltimusHelper.Dynamic("PqrsDocumento_Agregar")
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col-md-12">
+            @UltimusHelper.Dynamic("PqrsDocumento_AnexoList")
+        </div>
+    </div>
+
+</form>
+<form id="frmAceptaPolitica">
+    @*<h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Aceptación de las politicas</h3>
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+            </div>
+        </div>*@
+</form>
+
+<div id="OpcionesPqrsDocumento" style="display:none;">
+    <button type="button" title="Ver" class="btn btn-sm btn-default" onclick="window.open('#RutaVirtualArchivo#')">&nbsp;<i class="fa fa-external-link"></i></button>
+    @if (!FileInputReadonly)
+    {
+        <button type="button" title="Eliminar" class="btn btn-sm btn-default" onclick="Grid_Delete(this)">&nbsp;<i class="fa fa-trash"></i></button>
+    }
+    <div style="text-align:right; font-size:1.2em;">
+        <h3>
+            @UltimusHelper.Dynamic("PqrsDocumento_Agregar")
+        </h3>
+    </div>
+</div>
+
+@section Modals{
+    <div class="modal fade" id="modalVerResultado" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+        <div class="modal-dialog modal-lg" style="width:850px; height:450px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <b>Su número de radicado es: <span id="txtCodigoSolicitudPqrs"></span></b>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">
+                        <strong>&nbsp;<i class="fa fa-reply"></i>&nbsp;Cerrar</strong>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The modal -->
+    <div class="modal fade" id="ModalTerminos" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    La Alcaldía Distrital de Barranquilla, en cumplimiento a lo establecido en la ley 1581 de 2012 y el decreto reglamentario 1377 de 2013 y lo determinado en nuestra política de seguridad de la información digital y política de tratamiento de datos personales, le informamos que los datos personales que usted suministre o registre de manera voluntaria por nuestros diferentes canales de atención y servicios para realizar consultas, trámites o servicios en nuestra entidad, serán salvaguardados y tratados mediante esquemas de seguridad adoptados para impedir el acceso no autorizado de sus datos. La cual se encuentra publicada en nuestra página web y puede consultar en el siguiente link: <a href="https://www.barranquilla.gov.co/politica-de-privacidad">https://barranquilla.gov.co</a>.
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ModalDireccion" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span style="font-size:medium">Dirección</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="frmPqrsDireccion">
+                        <div class="row">
+                            <div class="col-md-12" style="text-align:center">
+                                @UltimusHelper.Dynamic("PqrsDireccion_Via")
+                                @UltimusHelper.Dynamic("PqrsDireccion_NumeroVia")
+                                @UltimusHelper.Dynamic("PqrsDireccion_LetraVia")
+                                @UltimusHelper.Dynamic("PqrsDireccion_BIS")
+                                @UltimusHelper.Dynamic("PqrsDireccion_ComplementoVia")
+                                @UltimusHelper.Dynamic("PqrsDireccion_CardinalidadVia")
+                                @UltimusHelper.Dynamic("PqrsDireccion_Titulo1")
+                                @UltimusHelper.Dynamic("PqrsDireccion_Numero")
+                                @UltimusHelper.Dynamic("PqrsDireccion_Letra")
+                                @UltimusHelper.Dynamic("PqrsDireccion_Titulo2")
+                                @UltimusHelper.Dynamic("PqrsDireccion_Complemento")
+                                @UltimusHelper.Dynamic("PqrsDireccion_Cardinalidad")
+                                @UltimusHelper.Dynamic("PqrsDireccion_Vivienda")
+                                @UltimusHelper.Dynamic("PqrsDireccion_NumeroVivienda")
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" id="btnGuardarDireccion" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section scripts{
+    @Scripts.Render("~/Scripts/PQRSD/Radicado")
+}
+

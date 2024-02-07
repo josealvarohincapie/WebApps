@@ -1,0 +1,400 @@
+﻿@{
+    bool FileInputInternoReadonly = ViewBag.TaskStatus != "1";
+    bool FileInputInternoRespuestaReadonly = ViewBag.TaskStatus != "1";
+    bool FileInputInternoAdicionalReadonly = ViewBag.TaskStatus != "1" || (ViewBag.Step != Correspondencia.Model.Classes.Constantes.CorrInterna.Etapas.Proyectar.Nombre && ViewBag.Step != Correspondencia.Model.Classes.Constantes.CorrInterna.Etapas.ValidarProyectar.Nombre && ViewBag.Step != Correspondencia.Model.Classes.Constantes.CorrInterna.Etapas.AprobarAbogado.Nombre && ViewBag.Step != Correspondencia.Model.Classes.Constantes.CorrInterna.Etapas.Aprobar.Nombre);
+}
+@section ButtonOption {
+    @UltimusHelper.Button("Botones_ImprimirPantalla", "btn btn-warning btn-sm", "fa fa-print", "Imprimir Pantalla", false)
+    @UltimusHelper.Button("Botones_GuardarRadicado", "btn btn-success btn-sm", "fa fa-floppy-o", "Radicar / Guardar", false)
+    @UltimusHelper.Button("Botones_GuardarRadicadoRespuesta", "btn btn-success btn-sm", "fa fa-floppy-o", "Radicar / Guardar", false)
+    @UltimusHelper.Button("Botones_VerDocumento", "btn btn-default btn-sm", "fa fa-eye", "Ver Documento", false)
+    @UltimusHelper.Button("Botones_ImprimirDocumento", "btn btn-default btn-sm", "fa fa-print", "Imprimir Documento", false)
+    @UltimusHelper.Button("Botones_VerDocumentoRespuesta", "btn btn-default btn-sm", "fa fa-eye", "Ver Documento", false)
+    @UltimusHelper.Button("Botones_ImprimirDocumentoRespuesta", "btn btn-default btn-sm", "fa fa-print", "Imprimir Documento", false)
+    @UltimusHelper.Button("Botones_Archivar", "btn btn-success btn-sm", "fa fa-circle-o", "Archivar", false)
+    @UltimusHelper.Button("Botones_Completar", "btn btn-danger btn-sm", "fa fa-circle-o", "Enviar", false)
+}
+
+<style>
+    .myNav .nav-pills > li.active > a {
+        background-color: #04A29C !important;
+        color: white !important;
+    }
+
+    .myNav .nav-tabs > li.active > a {
+        background-color: #04A29C !important;
+        color: white !important;
+    }
+
+    .myNav .nav a {
+        color: #808080;
+        background-color: #d6d6d6;
+        border-color: #808080;
+    }
+
+        .myNav .nav a:hover {
+            background-color: #78c9c6 !important;
+            color: #000000 !important;
+            opacity: 0.5;
+        }
+
+    .myNav .nav-active {
+        background-color: #04A29C !important;
+        color: white !important;
+    }
+
+    #frmRadicado .tab-pane {
+        display: none;
+    }
+
+    #frmRadicado .active {
+        display: block;
+    }
+
+    #frmRadicadoDocumento .tab-pane {
+        display: none;
+    }
+
+    #frmRadicadoDocumento .active {
+        display: block;
+    }
+</style>
+
+<input type="hidden" id="hiddenCodigoDecision_ProyectarRespuesta_ArchivarTerminar" value="@Correspondencia.Model.Classes.Constantes.CorrInterna.Etapas.ProyectarRespuesta.Decisiones.ArchivarTerminar" />
+<input type="hidden" id="hiddenCodigoDecision_ProyectarRespuesta_EnviarA" value="@Correspondencia.Model.Classes.Constantes.CorrInterna.Etapas.ProyectarRespuesta.Decisiones.EnviarA" />
+
+
+<div  class="myNav">
+    <ul class="nav nav-pills nav-justified">
+        <li class="active"><a data-toggle="tab" href="#menu0">Oficio</a></li>
+        <li id="liOficioRespuesta"><a data-toggle="tab" href="#menu1">Oficio Respuesta</a></li>
+        <li id="liRadicadoRecibido"><a data-toggle="tab" href="#menu2">Radicado Recibido</a></li>
+        <li><a data-toggle="tab" href="#menu3">Anexos</a></li>
+        <li><a data-toggle="tab" href="#menu4">Decisión</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="menu0" class="tab-pane fade in active">
+            <form id="frmRadicadoInterno">
+                <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Oficio</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        @UltimusHelper.Dynamic("RadicadoInterno_NumeroRadicado")
+                        @UltimusHelper.Dynamic("RadicadoInterno_Fecha")
+                        @UltimusHelper.Dynamic("RadicadoInterno_Entidad")
+                        @UltimusHelper.Dynamic("RadicadoInterno_Secretaria")
+                        @UltimusHelper.Dynamic("RadicadoInterno_Formato")
+                        @UltimusHelper.Dynamic("RadicadoInterno_TipoOficio")
+                        @UltimusHelper.Dynamic("RadicadoInterno_SecretariaSolicitarInformaciones")
+                        @UltimusHelper.Dynamic("RadicadoInterno_Calificativo")
+                        @UltimusHelper.Dynamic("RadicadoInterno_Nombre")
+                        @UltimusHelper.Dynamic("RadicadoInterno_Cargo")
+                        @UltimusHelper.Dynamic("RadicadoInterno_Correo")
+                        <div class="text-right">
+                            @UltimusHelper.Dynamic("RadicadoInterno_RadicadoInternoAdicional")
+                        </div>
+                        @UltimusHelper.Dynamic("RadicadoInterno_AsuntoDocumento")
+                        @UltimusHelper.Dynamic("RadicadoInterno_EstadoTarea")
+                    </div>
+                    <div class="col-md-6 breakPage breakSpaceTop">
+                        @UltimusHelper.Dynamic("RadicadoInterno_CuerpoDocumento")
+                        @UltimusHelper.Dynamic("RadicadoInterno_CodigoRecipienteSecretaria")
+                        @UltimusHelper.Dynamic("RadicadoInterno_CodigoRecipienteArea")
+                        @UltimusHelper.Dynamic("RadicadoInterno_CodigoRecipienteGrupo")
+                        @UltimusHelper.Dynamic("RadicadoInterno_CodigoRecipienteFuncionario")
+                        @UltimusHelper.Dynamic("RadicadoInterno_CodigoRecipienteAbogado")
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+            <div id="divRadicadoInternoRespuesta">
+                <form id="frmRadicadoInternoRespuesta">
+                    <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Oficio de Respuesta</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_NumeroRadicado")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_Fecha")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_Entidad")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_Secretaria")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_Formato")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_Calificativo")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_Nombre")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_Cargo")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_Correo")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_AsuntoDocumento")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_EstadoTarea")
+                        </div>
+                        <div class="col-md-6">
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_CuerpoDocumento")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_CodigoRecipienteSecretaria")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_CodigoRecipienteArea")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_CodigoRecipienteGrupo")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_CodigoRecipienteFuncionario")
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuesta_CodigoRecipienteAbogado")
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="menu2" class="tab-pane fade">
+            <div id="divRadicado">
+                <form id="frmRadicado">
+                    <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Radicado Recibido</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @UltimusHelper.Dynamic("Radicado_NumeroRadicado")
+                            @UltimusHelper.Dynamic("Radicado_NumeroRadicadoTemporal")
+                            @UltimusHelper.Dynamic("Radicado_NumeroRadicadoDepartamental")
+                            @UltimusHelper.Dynamic("Radicado_Fuente")
+                            @UltimusHelper.Dynamic("Radicado_Fecha")
+                            @UltimusHelper.Dynamic("Radicado_Remitente")
+                            @UltimusHelper.Dynamic("Radicado_Asunto")
+                            @UltimusHelper.Dynamic("Radicado_Direccion")
+                            @UltimusHelper.Dynamic("Radicado_Telefono")
+                            @UltimusHelper.Dynamic("Radicado_Entidad")
+                            @UltimusHelper.Dynamic("Radicado_Secretaria")
+                            @UltimusHelper.Dynamic("Radicado_Correo")
+                        </div>
+                        <div class="col-md-6">
+                            @UltimusHelper.Dynamic("Radicado_Genero")
+                            @UltimusHelper.Dynamic("Radicado_GrupoEtnico")
+                            @UltimusHelper.Dynamic("Radicado_SituacionDiscapacidad")
+                            @UltimusHelper.Dynamic("Radicado_SujetoEspecialProteccion")
+                            @UltimusHelper.Dynamic("Radicado_Folios")
+                            @UltimusHelper.Dynamic("Radicado_Anexos")
+                            @UltimusHelper.Dynamic("Radicado_TipoDocumento")
+                            @UltimusHelper.Dynamic("Radicado_EsUrgente")
+                            @UltimusHelper.Dynamic("Radicado_DiasVencimiento")
+                            @UltimusHelper.Dynamic("Radicado_HorasVencimiento")
+                            @UltimusHelper.Dynamic("Radicado_FechaVencimiento")
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="menu3" class="tab-pane fade">
+            <form id="frmRadicadoInternoDocumento">
+                <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Anexos del Oficio</h3>
+                @if (!FileInputInternoReadonly)
+                {
+                    <div class="row">
+                        <div class="col-md-6">
+                        </div>
+                        <div class="col-md-6">
+                            @UltimusHelper.Dynamic("RadicadoInternoDocumento_Archivo")
+                            @UltimusHelper.Dynamic("RadicadoInternoDocumento_RutaFisicaArchivo")
+                            @UltimusHelper.Dynamic("RadicadoInternoDocumento_RutaVirtualArchivo")
+                            @UltimusHelper.Dynamic("RadicadoInternoDocumento_TamanoArchivo")
+                            @UltimusHelper.Dynamic("RadicadoInternoDocumento_TituloArchivo")
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="text-align:right;">
+                            @UltimusHelper.Dynamic("RadicadoInternoDocumento_Agregar")
+                        </div>
+                    </div>
+                }
+                <div class="row">
+                    <div class="col-md-12">
+                        @UltimusHelper.Dynamic("RadicadoInternoDocumento_AnexoList")
+                    </div>
+                </div>
+            </form>
+            <div id="divRadicadoAnexos">
+                <form id="frmRadicadoDocumento">
+                    <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Anexos del Radicado Recibido</h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                            @UltimusHelper.Dynamic("RadicadoDocumento_AnexoList")
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="divRadicadoInternoAntecedentes">
+                <form id="frmRadicadoInternoAntecedentes"></form>
+                <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Antecedentes</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        @UltimusHelper.Dynamic("RadicadoInternoAntecedentes_AnexoList")
+                    </div>
+                </div>
+            </div>
+            <div id="divRadicadoInternoRespuestaAnexos">
+                <form id="frmRadicadoInternoRespuestaDocumento">
+                    <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Anexos del Oficio de Respuesta</h3>
+                    @if (!FileInputInternoRespuestaReadonly)
+                    {
+                        <div class="row">
+                            <div class="col-md-6">
+                            </div>
+                            <div class="col-md-6">
+                                @UltimusHelper.Dynamic("RadicadoInternoRespuestaDocumento_Archivo")
+                                @UltimusHelper.Dynamic("RadicadoInternoRespuestaDocumento_RutaFisicaArchivo")
+                                @UltimusHelper.Dynamic("RadicadoInternoRespuestaDocumento_RutaVirtualArchivo")
+                                @UltimusHelper.Dynamic("RadicadoInternoRespuestaDocumento_TamanoArchivo")
+                                @UltimusHelper.Dynamic("RadicadoInternoRespuestaDocumento_TituloArchivo")
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" style="text-align:right;">
+                                @UltimusHelper.Dynamic("RadicadoInternoRespuestaDocumento_Agregar")
+                            </div>
+                        </div>
+                    }
+                    <div class="row">
+                        <div class="col-md-12">
+                            @UltimusHelper.Dynamic("RadicadoInternoRespuestaDocumento_AnexoList")
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="menu4" class="tab-pane fade">
+            <div id="divRadicadoInternoDecision">
+                <form id="frmRadicadoInternoDecision">
+                    <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Decisión</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @UltimusHelper.Dynamic("RadicadoInternoDecision_Decision")
+                            @UltimusHelper.Dynamic("RadicadoInternoDecision_Secretaria")
+                            @UltimusHelper.Dynamic("RadicadoInternoDecision_Area")
+                            @UltimusHelper.Dynamic("RadicadoInternoDecision_Grupo")
+                            @UltimusHelper.Dynamic("RadicadoInternoDecision_Funcionario")
+                            @UltimusHelper.Dynamic("RadicadoInternoDecision_Abogado")
+                            @UltimusHelper.Dynamic("RadicadoInternoDecision_SecretariaRespuesta")
+                            @UltimusHelper.Dynamic("RadicadoInternoDecision_AreaRespuesta")
+                            @UltimusHelper.Dynamic("RadicadoInternoDecision_GrupoRespuesta")
+                            @UltimusHelper.Dynamic("RadicadoInternoDecision_FuncionarioRespuesta")
+                            @UltimusHelper.Dynamic("RadicadoInternoDecision_AbogadoRespuesta")
+                            @UltimusHelper.Dynamic("RadicadoInternoDecision_Comentarios")
+                        </div>
+                        <div class="col-md-6">
+                            @UltimusHelper.Dynamic("RadicadoInternoDecision_Firma")
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div id="OpcionesRadicadoDocumento" style="display:none;">
+            <button type="button" title="Ver" class="btn btn-sm btn-default" onclick="window.open('#RutaVirtualArchivo#')">&nbsp;<i class="fa fa-external-link"></i></button>
+        </div>
+
+        <div id="OpcionesRadicadoInternoAntecedentesDocumento" style="display:none;">
+            <button type="button" title="Ver" class="btn btn-sm btn-default" onclick="window.open('#RutaVirtualArchivo#')">&nbsp;<i class="fa fa-external-link"></i></button>
+        </div>
+
+        <div id="OpcionesRadicadoInternoDocumento" style="display:none;">
+            <button type="button" title="Ver" class="btn btn-sm btn-default" onclick="window.open('#RutaVirtualArchivo#')">&nbsp;<i class="fa fa-external-link"></i></button>
+            @if (!FileInputInternoReadonly)
+            {
+                <button type="button" title="Eliminar" class="btn btn-sm btn-default" onclick="Grid_Delete(this)">&nbsp;<i class="fa fa-trash"></i></button>
+            }
+        </div>
+
+        <div id="OpcionesRadicadoInternoRespuestaDocumento" style="display:none;">
+            <button type="button" title="Ver" class="btn btn-sm btn-default" onclick="window.open('#RutaVirtualArchivo#')">&nbsp;<i class="fa fa-external-link"></i></button>
+            @if (!FileInputInternoRespuestaReadonly)
+            {
+                <button type="button" title="Eliminar" class="btn btn-sm btn-default" onclick="Grid_Delete(this)">&nbsp;<i class="fa fa-trash"></i></button>
+            }
+        </div>
+
+        <div id="OpcionesRadicadoInternoAdicional" style="display:none;">
+            <button type="button" title="Ver Documento" class="btn btn-sm btn-default" onclick="VerDocumento('#RutaVirtualDocumento#')">&nbsp;<i class="fa fa-eye"></i></button>
+            <button type="button" title="Editar" class="btn btn-sm btn-default" onclick="Grid_Edit(this)">&nbsp;<i class="fa fa-pencil"></i></button>
+            @if (!FileInputInternoAdicionalReadonly)
+            {
+                <button type="button" title="Eliminar" class="btn btn-sm btn-default" onclick="Grid_Delete(this)">&nbsp;<i class="fa fa-trash"></i></button>
+            }
+        </div>
+
+        @section Modals{
+            <div class="modal fade" id="modalVerDocumento" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+                <div class="modal-dialog modal-lg" style="width:850px; height:450px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <iframe id="ifrDocumento" style="width:800px; height:400px; border:none;"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">
+                                <strong>&nbsp;<i class="fa fa-reply"></i>&nbsp;Cerrar</strong>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalVerDocumentoRespuesta" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+                <div class="modal-dialog modal-lg" style="width:850px; height:450px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <iframe id="ifrDocumentoRespuesta" style="width:800px; height:400px; border:none;"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">
+                                <strong>&nbsp;<i class="fa fa-reply"></i>&nbsp;Cerrar</strong>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalRadicadoInternoAdicional" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+                <div class="modal-dialog modal-lg" style="width:850px; height:450px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="frmRadicadoInternoAdicional">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        @UltimusHelper.Dynamic("RadicadoInternoAdicional_SecretariaSolicitarInformaciones")
+                                        @UltimusHelper.Dynamic("RadicadoInternoAdicional_Calificativo")
+                                        @UltimusHelper.Dynamic("RadicadoInternoAdicional_Nombre")
+                                        @UltimusHelper.Dynamic("RadicadoInternoAdicional_Cargo")
+                                        @UltimusHelper.Dynamic("RadicadoInternoAdicional_Correo")
+                                        <div class="text-right">
+                                            @UltimusHelper.Dynamic("RadicadoInternoAdicional_Agregar")
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        @UltimusHelper.Dynamic("RadicadoInternoAdicional_AgregarTodosJefes")
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        @UltimusHelper.Dynamic("RadicadoInternoAdicional_RadicadoInternoAdicionalList")
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">
+                                <strong>&nbsp;<i class="fa fa-reply"></i>&nbsp;Cerrar</strong>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        @section scripts{
+            @Scripts.Render("~/Scripts/CorrInterna/Radicado")
+        }

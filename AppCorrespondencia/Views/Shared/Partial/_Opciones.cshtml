@@ -1,0 +1,7 @@
+﻿<div id="Opciones" style="display:none;">
+    <button type="button" title="Editar" class="btn btn-sm btn-default" onclick="Grid_Edit(this)">&nbsp;<i class="fa fa-pencil"></i></button>
+    @if (ViewBag.TaskStatus == "1")
+    {
+        <button type="button" title="Eliminar" class="btn btn-sm btn-default" onclick="Grid_Delete(this)">&nbsp;<i class="fa fa-trash"></i></button>
+    }
+</div>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Logica;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebAppAsesorias.Controllers
 {
@@ -19,6 +20,8 @@ namespace WebAppAsesorias.Controllers
         // GET: ClasificacionPeticionController/Create
         public ActionResult Radicar()
         {
+            ClasificacionPeticionLogica clasificacionPeticionLogica = new ClasificacionPeticionLogica();
+            clasificacionPeticionLogica.Radicar("","",);
             return View();
         }
 

@@ -1,0 +1,57 @@
+﻿@section ButtonOption {
+    @UltimusHelper.Button("Botones_ValidarRadicado", "btn btn-success btn-sm", "fa fa-circle-o", "Validar", false)
+}
+
+<div id="divValidarRadicado">
+    <form id="frmValidarRadicado">
+        <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Validar Radicado</h3>
+        <div class="row">
+            <div class="col-md-6">
+                @UltimusHelper.Dynamic("ValidarRadicado_Hash")
+            </div>
+            <div class="col-md-6">
+                @UltimusHelper.Dynamic("ValidarRadicado_Archivo")
+            </div>
+        </div>
+        <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Resultado</h3>
+        <div>
+            <div class="row" id="divResultadoKo" style="display:none;">
+                <div class="col-md-12">
+                    <div class="alert alert-danger text-center" role="alert" style="font-size:large; margin-bottom:0;">
+                        <i class="fa fa-thumbs-down"></i>&nbsp;<b>Validación fallida.</b>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="divResultadoOk" style="display:none;">
+                <div class="col-md-12">
+                    <div class="alert alert-success text-center" role="alert" style="font-size:large; margin-bottom:0;">
+                        <i class="fa fa-thumbs-up"></i>&nbsp;<b>Validación satisfactoria.</b>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <br />
+                    <br />
+                </div>
+                <div class="col-md-6">
+                    @UltimusHelper.Dynamic("ValidarRadicado_Resultado")
+                    @UltimusHelper.Dynamic("ValidarRadicado_NumeroRadicado")
+                    @UltimusHelper.Dynamic("ValidarRadicado_Proceso")
+                    @UltimusHelper.Dynamic("ValidarRadicado_Etapa")
+                    @UltimusHelper.Dynamic("ValidarRadicado_Incidente")
+                </div>
+                <div class="col-md-6">
+                    @UltimusHelper.Dynamic("ValidarRadicado_Fecha")
+                    @UltimusHelper.Dynamic("ValidarRadicado_UserFullName")
+                    @UltimusHelper.Dynamic("ValidarRadicado_Decision")
+                    @UltimusHelper.Dynamic("ValidarRadicado_IP")
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Modals{
+}
+@section scripts{
+    @Scripts.Render("~/Scripts/CorrUtilitarios/ValidarRadicado")
+}

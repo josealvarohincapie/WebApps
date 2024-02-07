@@ -1,0 +1,148 @@
+﻿@section ButtonOption {
+    <div style="display: inline;">&nbsp;</div>
+    @UltimusHelper.Dynamic("Organigrama_AgregarEntidad")
+    @UltimusHelper.Dynamic("Organigrama_AgregarSecretaria")
+}
+
+<form id="frmOrganigrama">
+    <h3 class="TituloAcordeon"><i class="fa fa-chevron-circle-down"></i>&nbsp;Organigrama</h3>
+    <div>
+        <div class="row">
+            <div class="col-md-6">
+                @UltimusHelper.Dynamic("Organigrama_EsAdministrador")
+                @UltimusHelper.Dynamic("Organigrama_Entidad")
+                @UltimusHelper.Dynamic("Organigrama_Secretaria")
+                @UltimusHelper.Dynamic("Organigrama_Grupo")
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right">
+                @UltimusHelper.Dynamic("Organigrama_EditarEntidad")
+                @UltimusHelper.Dynamic("Organigrama_EditarSecretaria")
+                @UltimusHelper.Dynamic("Organigrama_Cargar")
+            </div>
+        </div>
+        <h3>Lista de Usuarios</h3>
+        <div class="row">
+            <div class="col-md-12 text-right">
+                @UltimusHelper.Dynamic("Organigrama_AgregarUsuario")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @UltimusHelper.Dynamic("Organigrama_OrganigramaUsuarioList")
+            </div>
+        </div>
+    </div>
+</form>
+
+<div id="OpcionesOrganigramaUsuario" style="display:none;">
+    <button type="button" title="Editar" class="btn btn-sm btn-default" onclick="EditarUsuario(#CodigoUsuario#, '#NombreUsuario#')">&nbsp;<i class="fa fa-edit"></i></button>
+    <button type="button" title="Eliminar" class="btn btn-sm btn-default" onclick="RemoverUsuario(#CodigoUsuario#, '#NombreUsuario#')">&nbsp;<i class="fa fa-trash"></i></button>
+</div>
+
+@section Modals{
+    <div class="modal fade" id="modalOrganigramaEntidad" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+        <div class="modal-dialog modal-lg" style="width:850px; height:450px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <b>Datos de la entidad</b>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form id="frmOrganigramaEntidad">
+                        <div class="row">
+                            <div class="col-md-12">
+                                @UltimusHelper.Dynamic("OrganigramaEntidad_CodigoEntidad")
+                                @UltimusHelper.Dynamic("OrganigramaEntidad_NombreEntidad")
+                                @UltimusHelper.Dynamic("OrganigramaEntidad_Departamento")
+                                @UltimusHelper.Dynamic("OrganigramaEntidad_Municipio")
+                                @UltimusHelper.Dynamic("OrganigramaEntidad_Sigla")
+                                @UltimusHelper.Dynamic("OrganigramaEntidad_SecuencialInicio")
+                                @UltimusHelper.Dynamic("OrganigramaEntidad_RutaDocumentos")
+                                @UltimusHelper.Dynamic("OrganigramaEntidad_Dominio")
+                                @UltimusHelper.Dynamic("OrganigramaEntidad_RecipienteNotificaciones")
+                                @UltimusHelper.Dynamic("OrganigramaEntidad_Habilitado")
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">
+                        <strong>&nbsp;<i class="fa fa-reply"></i>&nbsp;Cerrar</strong>
+                    </button>
+                    @UltimusHelper.Dynamic("OrganigramaEntidad_Guardar")
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalOrganigramaSecretaria" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+        <div class="modal-dialog modal-lg" style="width:850px; height:450px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <b>Datos de la secretaría</b>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form id="frmOrganigramaSecretaria">
+                        <div class="row">
+                            <div class="col-md-12">
+                                @UltimusHelper.Dynamic("OrganigramaSecretaria_CodigoSecretaria")
+                                @UltimusHelper.Dynamic("OrganigramaSecretaria_NombreSecretaria")
+                                @UltimusHelper.Dynamic("OrganigramaSecretaria_CodigoDependencia")
+                                @UltimusHelper.Dynamic("OrganigramaSecretaria_CodigoIntegracionDozzier")
+                                @UltimusHelper.Dynamic("OrganigramaSecretaria_Correo")
+                                @UltimusHelper.Dynamic("OrganigramaSecretaria_CargoAprobadorRemplazo")
+                                @UltimusHelper.Dynamic("OrganigramaSecretaria_Habilitado")
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">
+                        <strong>&nbsp;<i class="fa fa-reply"></i>&nbsp;Cerrar</strong>
+                    </button>
+                    @UltimusHelper.Dynamic("OrganigramaSecretaria_Guardar")
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalOrganigramaUsuario" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+        <div class="modal-dialog modal-lg" style="width:850px; height:450px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <b>Datos del usuario</b>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form id="frmOrganigramaUsuario">
+                        <div class="row">
+                            <div class="col-md-12">
+                                @UltimusHelper.Dynamic("OrganigramaUsuario_CodigoUsuario")
+                                @UltimusHelper.Dynamic("OrganigramaUsuario_Usuario")
+                                @UltimusHelper.Dynamic("OrganigramaUsuario_Cargo")
+                                @UltimusHelper.Dynamic("OrganigramaUsuario_Cedula")
+                                @UltimusHelper.Dynamic("OrganigramaUsuario_Correo")
+                                @UltimusHelper.Dynamic("OrganigramaUsuario_Firma")
+                                @UltimusHelper.Dynamic("OrganigramaUsuario_CorrExtRecibida")
+                                @UltimusHelper.Dynamic("OrganigramaUsuario_CorrExtEnviada")
+                                @UltimusHelper.Dynamic("OrganigramaUsuario_CorrInterna")
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">
+                        <strong>&nbsp;<i class="fa fa-reply"></i>&nbsp;Cerrar</strong>
+                    </button>
+                    @UltimusHelper.Dynamic("OrganigramaUsuario_Guardar")
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section scripts{
+    @Scripts.Render("~/Scripts/CorrUtilitarios/Organigrama")
+}
