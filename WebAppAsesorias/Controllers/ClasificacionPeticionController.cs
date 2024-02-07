@@ -10,7 +10,10 @@ namespace WebAppAsesorias.Controllers
         {
             return View();
         }
-
+        public ActionResult RegistroDePeticionarios()
+        {
+            return View();
+        }
         // GET: ClasificacionPeticionController/Details/5
         public ActionResult Details(int id)
         {
