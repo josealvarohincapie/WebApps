@@ -1,0 +1,149 @@
+﻿@page
+@model asesorias.Views.Home.registroDePeticionariosModel
+@{
+   }
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<link rel="stylesheet" href="~/css/FontAwesome.css" asp-append-version="true" />-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="~/css/Ultimus.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/toastr.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/font-awesome.css" asp-append-version="true" />
+    <title>Formulario de Asesoría</title>
+        <style>
+        .help-text {
+            background-color: #f9f9f9;
+            border: 1px solid #c0c0c0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px; 
+        }
+
+        .form-row {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+            .form-row label {
+                width: 180px;
+                margin-right: 10px;
+            }
+
+            .form-row input[type="text"],
+            .form-row select,
+            .form-row textarea {
+                flex: 1;
+                padding: 5px;
+            }
+
+            .form-row input[type="submit"] {
+                width: auto;
+                margin: 20px 0;
+                cursor: pointer;
+            }
+        .form-row {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+            .form-row label {
+                width: 180px;
+                margin-right: 10px;
+            }
+
+            .form-row input[type="text"],
+            .form-row select,
+            .form-row textarea {
+                flex: 1;
+                padding: 5px;
+            }
+
+            .form-row input[type="submit"] {
+                width: auto;
+                margin: 20px 0;
+                cursor: pointer;
+            }
+
+
+         </style>
+</head>
+<body>
+    <div class="button-container">
+        <button class="btn amarillo"><i class="fas fa-print"></i> Imprimir Pantalla</button>
+        <button class="btn verde"><i class="fas fa-save"></i> Guardar/Radicar</button>
+        <button class="btn amarillo"><i class="fas fa-sync-alt"></i> Ver trámite</button>
+        <button class="btn gris"><i class="fas fa-eye"></i> Ver etiqueta</button>
+        <button class="btn rojo"><i class="fas fa-circle"></i> Enviar</button>
+    </div>
+
+    <div class="help-text">
+        ASESORÍA: La asesoría consiste en orientar al peticionario en el ejercicio y defensa de los derechos humanos, ante las autoridades competentes o ante las entidades de carácter privado.
+    </div>
+    <form>
+        <div class="form-row">
+          <label for="tipoPeticion">Tipo de petición:</label>                             
+          <input type="text" id="tipoPeticion" name="tipoPeticion">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-medium">
+                    <i class="fa fa-close"></i>
+                </button>
+                <button type="button" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
+                    <i class="fa fa-search"></i>&nbsp;
+                </button>
+            </span>
+        </div>
+       
+        <div class="form-row">
+            <label for="areaDerecho">Área de derecho:</label>
+            <select id="areaDerecho" name="areaDerecho">
+                <option value="">Seleccione una opción</option>
+                <option value="Derecho administrativo">Derecho administrativo</option>
+                <option value="Derecho civil">Derecho civil</option>
+                <option value="Derecho comercial">Derecho comercial</option>
+                <option value="Derecho de familia">Derecho de familia</option>
+                <option value="Derecho internacional">Derecho internacional</option>
+                <option value="Derecho laboral">Derecho laboral</option>
+                <option value="Derecho penal">Derecho penal</option>
+                <option value="Derecho policivo">Derecho policivo</option>
+                <option value="Derechos humanos y DIH">Derechos humanos y DIH</option>
+                <option value="J. Transicional Ley 1448 de 2011">J. Transicional Ley 1448 de 2011</option>
+                
+            </select>
+        </div>
+
+        <div class="form-row">
+            <label for="derechos">Derechos:</label>
+            <input type="text" id="derechos" name="derechos">
+        </div>
+
+        <div class="form-row">
+            <label for="descripcionAsesoria">Descripción de asesoría:</label>
+            <textarea id="descripcionAsesoria" name="descripcionAsesoria"></textarea>
+        </div>
+
+        <div class="form-row">
+            <label for="observaciones">Observaciones:</label>
+            <textarea id="observaciones" name="observaciones"></textarea>
+        </div>
+
+        <div class="form-row">
+            <label for="respuestaEscrita">¿La asesoría debe generar respuesta por escrito?</label>
+            <select id="respuestaEscrita" name="respuestaEscrita">
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <label class = "control-label col-sm-4" for="conclusionAsesoria">Conclusión de asesoría:</label>
+            <textarea id="conclusionAsesoria" name="conclusionAsesoria"></textarea>
+        </div>
+
+        <div class="form-row">
+                  </div>
+    </form>
+</body>
+</html>
