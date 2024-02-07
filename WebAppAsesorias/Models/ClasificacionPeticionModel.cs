@@ -8,8 +8,7 @@ namespace WebAppAsesorias.Models
         public string? DescTipoPeticion { get; set; }
         public int IdAreaDerecho { get; set; }
         public string? DescAreaDerecho { get; set; }
-        public int IdDerecho { get; set; }
-        public string? DescDerecho { get; set; }
+        public List<DerechoModel> Derechos { get; set; } = new List<DerechoModel>();
         public string? DescripcionAsesorias { get; set; }
         public string? Observaciones { get; set; }
         public bool RespuestaAsesoria { get; set; }

@@ -1,5 +1,6 @@
 ﻿using Logica;
 using Microsoft.AspNetCore.Mvc;
+using WebAppAsesorias.Models;
 
 namespace WebAppAsesorias.Controllers
 {
@@ -85,6 +86,18 @@ namespace WebAppAsesorias.Controllers
             {
                 return View();
             }
+        }
+        public ActionResult Index3()
+        {
+            ClasificacionPeticionModel data = new ClasificacionPeticionModel();
+            data.DescTipoPeticion = "";
+            data.DescAreaDerecho = "";
+            data.Derechos = new List<DerechoModel>();
+            data.DescripcionAsesorias = "";
+            data.Observaciones = "";
+            data.RespuestaAsesoria = true;
+            data.ConclusionAsesoria = "";
+            return View(data);
         }
     }
 }
