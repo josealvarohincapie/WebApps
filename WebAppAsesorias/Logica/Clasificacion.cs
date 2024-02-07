@@ -4,7 +4,7 @@
     {
         public String Radicar()
         {
-            //ejemplo
+            
            // ClasificacionPeticionLogica cla = new ClasificacionPeticionLogica();
             return "";
         }
