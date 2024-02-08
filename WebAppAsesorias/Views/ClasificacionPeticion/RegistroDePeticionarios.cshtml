@@ -195,12 +195,17 @@
         </div>
 
         <div class="form-row">
-            <label for="respuestaEscrita">¿La asesoría debe generar respuesta por escrito?</label>
-            <select id="respuestaEscrita" name="respuestaEscrita">
-                <option value="si">Sí</option>
-                <option value="no">No</option>
-            </select>
+            <label>¿La asesoría debe generar respuesta por escrito?</label>
+            <div>
+                <input type="radio" id="respuestaEscritaSi" name="respuestaEscrita" value="si">
+                <label for="respuestaEscritaSi">Sí</label>
+            </div>
+            <div>
+                <input type="radio" id="respuestaEscritaNo" name="respuestaEscrita" value="no">
+                <label for="respuestaEscritaNo">No</label>
+            </div>
         </div>
+
 
         <div class="form-row">
             <label class="control-label col-sm-4" for="conclusionAsesoria">Conclusión de asesoría:</label>
@@ -243,8 +248,7 @@
             </style>
         </div>
 
-        <div class="form-row">
-        </div>
+        
     </form>
 </body>
 </html>
