@@ -1,7 +1,4 @@
-﻿@page
-@model asesorias.Views.Home.registroDePeticionariosModel
-@{
-}
+﻿@model WebAppAsesorias.Models.ClasificacionPeticionModel
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,7 +81,7 @@
     <form>
         <div class="form-row">
             <label for="tipoPeticion">Tipo de petición:</label>
-            <input type="text" id="tipoPeticion" name="tipoPeticion">
+            <input type="text" id="tipoPeticion" name="tipoPeticion" @Model.DescTipoPeticion>
             <span class="input-group-btn">
                 <button type="button" class="btn btn-default btn-medium">
                     <i class="fa fa-close"></i>
@@ -126,8 +123,7 @@
 
         <div class="form-row">
             <label for="areaDerecho">Área de derecho:</label>
-
-            <select id="areaDerecho" name="areaDerecho">
+            <select id="areaDerecho" name="areaDerecho" >
                 <option value="">Seleccione una opción</option>
                 <option value="Derecho administrativo">Derecho administrativo</option>
                 <option value="Derecho civil">Derecho civil</option>
@@ -191,20 +187,25 @@
 
         <div class="form-row">
             <label for="observaciones">Observaciones:</label>
-            <textarea id="observaciones" name="observaciones"></textarea>
+            <textarea id="observaciones" name="observaciones" @Model.Observaciones>.</textarea>
         </div>
+
+       
 
         <div class="form-row">
             <label>¿La asesoría debe generar respuesta por escrito?</label>
-            <div>
-                <input type="radio" id="respuestaEscritaSi" name="respuestaEscrita" value="si">
-                <label for="respuestaEscritaSi">Sí</label>
-            </div>
-            <div>
-                <input type="radio" id="respuestaEscritaNo" name="respuestaEscrita" value="no">
-                <label for="respuestaEscritaNo">No</label>
+            <div class="radio-group">
+                <div>
+                    <input type="radio" id="respuestaEscritaSi" name="respuestaEscrita" value="si">
+                    <label for="respuestaEscritaSi">Sí</label>
+                </div>
+                <div>
+                    <input type="radio" id="respuestaEscritaNo" name="respuestaEscrita" value="no">
+                    <label for="respuestaEscritaNo">No</label>
+                </div>
             </div>
         </div>
+
 
 
         <div class="form-row">

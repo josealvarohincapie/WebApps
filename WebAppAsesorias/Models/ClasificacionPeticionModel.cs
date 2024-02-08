@@ -12,6 +12,6 @@ namespace WebAppAsesorias.Models
         public string? DescripcionAsesorias { get; set; }
         public string? Observaciones { get; set; }
         public bool RespuestaAsesoria { get; set; }
-        public required string ConclusionAsesoria { get; set; }
+        public string? ConclusionAsesoria { get; set; }
     }
 }

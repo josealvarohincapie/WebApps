@@ -7,10 +7,10 @@ namespace WebAppAsesorias.Controllers
     public class ClasificacionPeticionController : Controller
     {
         // GET: ClasificacionPeticionController
-        public ActionResult Index()
-        {
-            return View();
-        }
+      //  public ActionResult Index()
+        //{
+          //  return View();
+        //}
         public ActionResult RegistroDePeticionarios()
         {
             return View();
@@ -25,7 +25,7 @@ namespace WebAppAsesorias.Controllers
         public ActionResult Radicar()
         {
             ClasificacionPeticionLogica clasificacionPeticionLogica = new ClasificacionPeticionLogica();
-            clasificacionPeticionLogica.Radicar("","",);
+           // clasificacionPeticionLogica.Radicar("","",);
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace WebAppAsesorias.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index);
+                return RedirectToAction(nameof(Index));
             }
             catch
             {
@@ -87,16 +87,16 @@ namespace WebAppAsesorias.Controllers
                 return View();
             }
         }
-        public ActionResult Index3()
+        public ActionResult Index()
         {
-            ClasificacionPeticionModel data = new ClasificacionPeticionModel();
+            ClasificacionPeticionModel data = new ClasificacionPeticionModel(); 
             data.DescTipoPeticion = "";
             data.DescAreaDerecho = "";
             data.Derechos = new List<DerechoModel>();
             data.DescripcionAsesorias = "";
-            data.Observaciones = "";
+            data.Observaciones = "Hola";
             data.RespuestaAsesoria = true;
-            data.ConclusionAsesoria = "";
+            data.ConclusionAsesoria = "Hola";
             return View(data);
         }
     }
