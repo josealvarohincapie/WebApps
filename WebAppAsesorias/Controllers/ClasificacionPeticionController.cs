@@ -7,14 +7,11 @@ namespace WebAppAsesorias.Controllers
     public class ClasificacionPeticionController : Controller
     {
         // GET: ClasificacionPeticionController
-      //  public ActionResult Index()
-        //{
-          //  return View();
-        //}
-        public ActionResult RegistroDePeticionarios()
+        public ActionResult Index()
         {
-            return View();
+          return View();
         }
+        
         // GET: ClasificacionPeticionController/Details/5
         public ActionResult Details(int id)
         {
@@ -87,7 +84,9 @@ namespace WebAppAsesorias.Controllers
                 return View();
             }
         }
-        public ActionResult Index()
+
+        //[HttpGet]
+        public ActionResult RegistroDePeticionarios()
         {
             ClasificacionPeticionModel data = new ClasificacionPeticionModel(); 
             data.DescTipoPeticion = "";

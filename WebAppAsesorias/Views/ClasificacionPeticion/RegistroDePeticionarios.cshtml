@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/toastr.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/font-awesome.css" asp-append-version="true" />
     <title>Formulario de Asesoría</title>
+    
     <style>
         .help-text {
             background-color: #f9f9f9;
@@ -81,7 +82,7 @@
     <form>
         <div class="form-row">
             <label for="tipoPeticion">Tipo de petición:</label>
-            <input type="text" id="tipoPeticion" name="tipoPeticion" @Model.DescTipoPeticion>
+            <input type="text" id="tipoPeticion" name="tipoPeticion" value="@Model.DescTipoPeticion">
             <span class="input-group-btn">
                 <button type="button" class="btn btn-default btn-medium">
                     <i class="fa fa-close"></i>
@@ -187,7 +188,7 @@
 
         <div class="form-row">
             <label for="observaciones">Observaciones:</label>
-            <textarea id="observaciones" name="observaciones" @Model.Observaciones>.</textarea>
+            <textarea id="observaciones" name="observaciones">@Model.Observaciones</textarea>
         </div>
 
        
@@ -196,26 +197,28 @@
             <label>¿La asesoría debe generar respuesta por escrito?</label>
             <div class="radio-group">
                 <div>
-                    <input type="radio" id="respuestaEscritaSi" name="respuestaEscrita" value="si">
+                    <input type="radio" id="respuestaEscritaSi" name="respuestaEscrita" value="si" onclick="OcultarConclusiones()">
                     <label for="respuestaEscritaSi">Sí</label>
                 </div>
                 <div>
-                    <input type="radio" id="respuestaEscritaNo" name="respuestaEscrita" value="no">
+                    <input type="radio" id="respuestaEscritaNo" name="respuestaEscrita" value="no" onclick="OcultarConclusiones()">
                     <label for="respuestaEscritaNo">No</label>
                 </div>
             </div>
         </div>
 
 
-
-        <div class="form-row">
+        
+        <div class="form-row" id="divConclusionAsesoria">
             <label class="control-label col-sm-4" for="conclusionAsesoria">Conclusión de asesoría:</label>
-            <textarea id="conclusionAsesoria" name="conclusionAsesoria"></textarea>
+            <textarea id="txtConclusionAsesoria" name="conclusionAsesoria"></textarea>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            
             <span class="input-group-btn">
-                <button type="button" class="btn btn-default btn-medium">
+                <button type="button" id="btnLimpiarConclusionAsesoria" onclick="LimpiarConclusionesAsesorias()" class="btn btn-default btn-medium">
                     <i class="fa fa-close"></i>
-                </button>
-                <button type="button" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
+                </>
+                    <button type="button" id="btnBuscarConclusionAsesoria" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
                     <i class="fa fa-search"></i>&nbsp;
                 </button>
             </span>
