@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dto\ParametroDTO.cs" />
+    <Compile Include="Logica\ParametroLogica.cs" />
     <Compile Include="Logica\ClasificacionPeticionLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

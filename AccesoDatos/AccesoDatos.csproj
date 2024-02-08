@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\ParametroData.cs" />
     <Compile Include="Data\ConexionDB.cs" />
     <Compile Include="Data\ClasificacionPeticionData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
