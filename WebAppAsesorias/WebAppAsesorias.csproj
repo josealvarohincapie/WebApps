@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj" />
     <ProjectReference Include="..\Logica\Negocio.csproj" />
   </ItemGroup>
 

@@ -7,7 +7,7 @@ namespace Logica
 {
     public class ParametroLogica
     {
-        public List<ParametroDTO> consultarParametrosXCodTipo(string codTipoParametro, System.Data.DataTable dataTable)
+        public List<ParametroDTO> consultarParametrosXCodTipo(string codTipoParametro)
         {
             ParametroData parametroData = new ParametroData();
             var data = parametroData.consultarParametrosXCodTipo(codTipoParametro);

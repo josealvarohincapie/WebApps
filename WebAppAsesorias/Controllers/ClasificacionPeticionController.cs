@@ -88,6 +88,12 @@ namespace WebAppAsesorias.Controllers
         //[HttpGet]
         public ActionResult RegistroDePeticionarios()
         {
+
+            //ParametroLogica parametroLogica = new ParametroLogica();
+            //var listaParametros = parametroLogica.consultarParametrosXCodTipo("AREADERE");
+
+
+
             ClasificacionPeticionModel data = new ClasificacionPeticionModel(); 
             data.DescTipoPeticion = "";
             data.DescAreaDerecho = "";

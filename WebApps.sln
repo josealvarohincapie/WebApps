@@ -5,6 +5,7 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppAsesorias", "WebAppAsesorias\WebAppAsesorias.csproj", "{506880D5-5F61-424D-A939-87D7C11E11C4}"
 	ProjectSection(ProjectDependencies) = postProject
+		{64C49D03-B3DF-4574-B1EC-B9008F50D22D} = {64C49D03-B3DF-4574-B1EC-B9008F50D22D}
 		{939F80B3-7F5B-4592-88BD-15D98C6B344D} = {939F80B3-7F5B-4592-88BD-15D98C6B344D}
 	EndProjectSection
 EndProject
