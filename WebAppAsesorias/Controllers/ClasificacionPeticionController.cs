@@ -1,5 +1,6 @@
 ﻿using Logica;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using WebAppAsesorias.Models;
 
 namespace WebAppAsesorias.Controllers
@@ -96,12 +97,18 @@ namespace WebAppAsesorias.Controllers
 
             ClasificacionPeticionModel data = new ClasificacionPeticionModel(); 
             data.DescTipoPeticion = "";
-            data.DescAreaDerecho = "";
-            data.Derechos = new List<DerechoModel>();
+            data.AreaDerecho = new List<SelectListItem>
+        {
+            new SelectListItem { Text = "Derecho administrativo", Value = "dead" },
+            new SelectListItem { Text = "Derecho civil", Value = "deci" },
+            new SelectListItem { Text = "Derecho comercial", Value = "deco" }
+        };
+           
+            data.Derechos = new List<ParametrosModel>();
             data.DescripcionAsesorias = "";
-            data.Observaciones = "Hola";
-            data.RespuestaAsesoria = true;
-            data.ConclusionAsesoria = "Hola";
+            data.Observaciones = "";
+            data.RespuestaAsesoria = false;
+            data.ConclusionAsesoria = "";
             return View(data);
         }
     }

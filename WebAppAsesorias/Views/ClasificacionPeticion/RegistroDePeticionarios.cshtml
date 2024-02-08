@@ -124,20 +124,7 @@
 
         <div class="form-row">
             <label for="areaDerecho">Área de derecho:</label>
-            <select id="areaDerecho" name="areaDerecho" >
-                <option value="">Seleccione una opción</option>
-                <option value="Derecho administrativo">Derecho administrativo</option>
-                <option value="Derecho civil">Derecho civil</option>
-                <option value="Derecho comercial">Derecho comercial</option>
-                <option value="Derecho de familia">Derecho de familia</option>
-                <option value="Derecho internacional">Derecho internacional</option>
-                <option value="Derecho laboral">Derecho laboral</option>
-                <option value="Derecho penal">Derecho penal</option>
-                <option value="Derecho policivo">Derecho policivo</option>
-                <option value="Derechos humanos y DIH">Derechos humanos y DIH</option>
-                <option value="J. Transicional Ley 1448 de 2011">J. Transicional Ley 1448 de 2011</option>
-
-            </select>
+            @Html.DropDownListFor(model =>model.AreaDerecho,  Model.AreaDerecho,"Selecciona un valor")
         </div>
 
         <div class="form-row">
@@ -217,8 +204,8 @@
             <span class="input-group-btn">
                 <button type="button" id="btnLimpiarConclusionAsesoria" onclick="LimpiarConclusionesAsesorias()" class="btn btn-default btn-medium">
                     <i class="fa fa-close"></i>
-                </>
-                    <button type="button" id="btnBuscarConclusionAsesoria" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
+                </button>
+                <button type="button" id="btnBuscarConclusionAsesoria" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
                     <i class="fa fa-search"></i>&nbsp;
                 </button>
             </span>
