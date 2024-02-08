@@ -2,24 +2,27 @@
 using Logica.dto;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Logica
 {
     public class ParametroLogica
     {
-        public List<ParametroDTO> consultarParametrosXCodTipo(string codTipoParametro)
+        public List<ParametroDTO> ConsultarParametrosXCodTipo(string codTipoParametro)
         {
             ParametroData parametroData = new ParametroData();
-            var data = parametroData.consultarParametrosXCodTipo(codTipoParametro);
+            var dt = parametroData.consultarParametrosXCodTipo(codTipoParametro);
 
             var lista = new List<ParametroDTO>();
 
-            /*
-            foreach (var item in data)
+            foreach (DataRow row in dt.Rows)
             {
-                
+                var param = new ParametroDTO();
+                param.Codigo = row["codigo"].ToString();
+                param.Descripcion = row["descripcion"].ToString();
+                lista.Add(param);
             }
-            */
+
             return lista;
         }
         public static void main(String[] args)

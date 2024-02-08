@@ -5,12 +5,11 @@ namespace Logica
 {
     public class ClasificacionPeticionLogica
     {
-        public String Radicar()
+        public String RadicarPeticion(string codTipoPeticion, string codAreaDerecho, string codDerecho, string descAsesoria, string observaciones, string loginname)
         {
             ClasificacionPeticionData clasificacionPeticionData = new ClasificacionPeticionData();
-            clasificacionPeticionData.Radicar("", "", "", 1, 1);
-            return "";
-
+            clasificacionPeticionData.RadicarPeticion(codTipoPeticion, codAreaDerecho, codDerecho, descAsesoria, observaciones, loginname);
+            return "OK";
         }
     }
 }

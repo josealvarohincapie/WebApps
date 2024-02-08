@@ -7,7 +7,7 @@ namespace WebAppAsesorias.Models
         public int Id { get; set; }
         public string? TextoAyuda { get; set; }
         public string? DescTipoPeticion { get; set; }
-        public List<SelectListItem>? AreaDerecho { get; set; } 
+        public List<SelectListItem>? ListaAreaDerecho { get; set; } 
         public List<ParametrosModel> Derechos { get; set; } = new List<ParametrosModel>();
         public string? DescripcionAsesorias { get; set; }
         public string? Observaciones { get; set; }

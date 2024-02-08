@@ -27,17 +27,18 @@ namespace AccesoDatos.Data
         /**
          *  Permite radicar la clasificación de una petición
          */
-        public void Radicar(string nombre, string desc, string marca, double precio, int stock)
+        public void RadicarPeticion(string codTipoPeticion, string codAreaDerecho, string codDerecho, string descAsesoria, string observaciones, string loginname)
         {
 
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "InsetarProductos";
+            comando.CommandText = "spInsRadicarPeticion";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@nombre", nombre);
-            comando.Parameters.AddWithValue("@descrip", desc);
-            comando.Parameters.AddWithValue("@Marca", marca);
-            comando.Parameters.AddWithValue("@precio", precio);
-            comando.Parameters.AddWithValue("@stock", precio);
+            comando.Parameters.AddWithValue("@codTipoPeticion", codTipoPeticion);
+            comando.Parameters.AddWithValue("@codAreaDerecho", codAreaDerecho);
+            comando.Parameters.AddWithValue("@codDerecho", codDerecho);
+            comando.Parameters.AddWithValue("@descAsesoria", descAsesoria);
+            comando.Parameters.AddWithValue("@observaciones", observaciones);
+            comando.Parameters.AddWithValue("@loginname", loginname);
 
             comando.ExecuteNonQuery();
 

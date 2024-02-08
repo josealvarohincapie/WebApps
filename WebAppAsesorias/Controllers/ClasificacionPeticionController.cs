@@ -29,14 +29,15 @@ namespace WebAppAsesorias.Controllers
 
         // POST: ClasificacionPeticionController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Radicar(IFormCollection collection)
+//        [ValidateAntiForgeryToken]
+        public ActionResult RadicarPeticion(ClasificacionPeticionModel clasificacionPeticionModel)
         {
             try
             {
-               // var clasificacionPeticionLogica = new ClasificacionPeticionLogica();
-               
-                return RedirectToAction(nameof(Index));
+                var clasificacionPeticionLogica = new ClasificacionPeticionLogica();
+                var respuesta = clasificacionPeticionLogica.RadicarPeticion("1", "1", "1", clasificacionPeticionModel.ConclusionAsesoria, clasificacionPeticionModel.Observaciones, "jahc");
+
+                return RedirectToAction(nameof(RegistroDePeticionarios));
             }
             catch
             {
@@ -90,20 +91,20 @@ namespace WebAppAsesorias.Controllers
         public ActionResult RegistroDePeticionarios()
         {
 
-            //ParametroLogica parametroLogica = new ParametroLogica();
-            //var listaParametros = parametroLogica.consultarParametrosXCodTipo("AREADERE");
-
-
+            ParametroLogica parametroLogica = new ParametroLogica();
+            var listaParametros = parametroLogica.ConsultarParametrosXCodTipo("AREADERE");
 
             ClasificacionPeticionModel data = new ClasificacionPeticionModel(); 
             data.DescTipoPeticion = "";
-            data.AreaDerecho = new List<SelectListItem>
-        {
-            new SelectListItem { Text = "Derecho administrativo", Value = "dead" },
-            new SelectListItem { Text = "Derecho civil", Value = "deci" },
-            new SelectListItem { Text = "Derecho comercial", Value = "deco" }
-        };
-           
+
+            data.ListaAreaDerecho = new List<SelectListItem>();
+
+            foreach (var item in listaParametros)
+            {
+                var itemDerecho = new SelectListItem { Text = item.Descripcion, Value = item.Codigo};
+                data.ListaAreaDerecho.Add(itemDerecho);
+            }
+
             data.Derechos = new List<ParametrosModel>();
             data.DescripcionAsesorias = "";
             data.Observaciones = "";
