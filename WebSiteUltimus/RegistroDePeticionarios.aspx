@@ -1,0 +1,252 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RegistroDePeticionarios.aspx.cs" Inherits="RegistroDePeticionarios" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+
+    <!--<link rel="stylesheet" href="~/css/FontAwesome.css" asp-append-version="true" />-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="~/css/Ultimus.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/toastr.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/font-awesome.css" asp-append-version="true" />
+    <title>Formulario de Asesoría</title>
+
+    <style>
+        .help-text {
+            background-color: #f9f9f9;
+            border: 1px solid #c0c0c0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .form-row {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+            .form-row label {
+                width: 180px;
+                margin-right: 10px;
+            }
+
+            .form-row input[type="text"],
+            .form-row select,
+            .form-row textarea {
+                flex: 1;
+                padding: 5px;
+            }
+
+            .form-row input[type="submit"] {
+                width: auto;
+                margin: 20px 0;
+                cursor: pointer;
+            }
+
+        .form-row {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+            .form-row label {
+                width: 180px;
+                margin-right: 10px;
+            }
+
+            .form-row input[type="text"],
+            .form-row select,
+            .form-row textarea {
+                flex: 1;
+                padding: 5px;
+            }
+
+            .form-row input[type="submit"] {
+                width: auto;
+                margin: 20px 0;
+                cursor: pointer;
+            }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <div class="button-container">
+            <button class="btn amarillo"><i class="fas fa-print"></i> Imprimir Pantalla</button>
+            <button class="btn verde" type="submit" asp-controller="ClasificacionPeticion" asp-action="RadicarPeticion"><i class="fas fa-save"></i> Guardar/Radicar</button>
+            <button class="btn amarillo"><i class="fas fa-sync-alt"></i> Ver trámite</button>
+            <button class="btn gris"><i class="fas fa-eye"></i> Ver etiqueta</button>
+            <button class="btn rojo"><i class="fas fa-circle"></i> Enviar</button>
+        </div>
+
+        <div class="help-text">
+            ASESORÍA: La asesoría consiste en orientar al peticionario en el ejercicio y defensa de los derechos humanos, ante las autoridades competentes o ante las entidades de carácter privado.
+        </div>
+        <div class="form-row">
+            <label for="tipoPeticion">Tipo de petición:</label>
+            <input type="text" id="tipoPeticion" name="tipoPeticion" value="@Model.DescTipoPeticion">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-medium">
+                    <i class="fa fa-close"></i>
+                </button>
+                <button type="button" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
+                    <i class="fa fa-search"></i>&nbsp;
+                </button>
+
+            </span>
+            <style>
+                .form-row {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                    .form-row label {
+                        margin-right: 10px;
+                    }
+
+                    .form-row input[type="text"] {
+                        flex-grow: 1;
+                        margin-right: 10px;
+                    }
+
+                .input-group-btn {
+                    display: flex;
+                }
+
+                .btn-medium {
+                    padding: 0.5rem 0.75rem;
+                }
+
+                .btn-margin-catalogo {
+                    margin-right: 5px;
+                }
+            </style>
+        </div>
+
+        <div class="form-row">
+            <label for="areaDerecho">Área de derecho:</label>
+            @Html.DropDownListFor(model => model.ListaAreaDerecho, Model.ListaAreaDerecho, "-- Seleccione un valor --")
+        </div>
+
+        <div class="form-row">
+            <label for="derechos">Derechos:</label>
+            
+            <asp:TextBox ID="txtDerechos" Text="mateo" runat="server"></asp:TextBox>
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-medium">
+                    <i class="fa fa-close"></i>
+                </button>
+                <button type="button" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
+                    <i class="fa fa-search"></i>&nbsp;
+                </button>
+            </span>
+            <style>
+                .form-row {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                    .form-row label {
+                        margin-right: 10px;
+                    }
+
+                    .form-row input[type="text"] {
+                        flex-grow: 1;
+                        margin-right: 10px;
+                    }
+
+                .input-group-btn {
+                    display: flex;
+                }
+
+                .btn-medium {
+                    padding: 0.5rem 0.75rem;
+                }
+
+                .btn-margin-catalogo {
+                    margin-right: 5px;
+                }
+            </style>
+        </div>
+
+        <div class="form-row">
+            <label for="descripcionAsesoria">Descripción de asesoría:</label>
+            <textarea id="descripcionAsesoria" name="descripcionAsesoria"></textarea>
+        </div>
+
+        <div class="form-row">
+            <label for="observaciones">Observaciones:</label>
+            <textarea id="observaciones" name="observaciones">@Model.Observaciones</textarea>
+        </div>
+
+
+
+        <div class="form-row">
+            <label>¿La asesoría debe generar respuesta por escrito?</label>
+            <div class="radio-group">
+                <div>
+                    <input type="radio" id="respuestaEscritaSi" name="respuestaEscrita" value="si" onclick="OcultarConclusiones()">
+                    <label for="respuestaEscritaSi">Sí</label>
+                </div>
+                <div>
+                    <input type="radio" id="respuestaEscritaNo" name="respuestaEscrita" value="no" onclick="OcultarConclusiones()">
+                    <label for="respuestaEscritaNo">No</label>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-row" id="divConclusionAsesoria">
+            <label class="control-label col-sm-4" for="conclusionAsesoria">Conclusión de asesoría:</label>
+            <textarea id="txtConclusionAsesoria" name="conclusionAsesoria">@Model.ConclusionAsesoria</textarea>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <span class="input-group-btn">
+                <button type="button" id="btnLimpiarConclusionAsesoria" onclick="LimpiarConclusionesAsesorias()" class="btn btn-default btn-medium">
+                    <i class="fa fa-close"></i>
+                </button>
+                <button type="button" id="btnBuscarConclusionAsesoria" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
+                    <i class="fa fa-search"></i>&nbsp;
+                </button>
+            </span>
+            <style>
+                .form-row {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                    .form-row label {
+                        margin-right: 10px;
+                    }
+
+                    .form-row input[type="text"] {
+                        flex-grow: 1;
+                        margin-right: 10px;
+                    }
+
+                .input-group-btn {
+                    display: flex;
+                }
+
+                .btn-medium {
+                    padding: 0.5rem 0.75rem;
+                }
+
+                .btn-margin-catalogo {
+                    margin-right: 5px;
+                }
+            </style>
+        </div>
+
+
+    </form>
+</body>
+</html>
+
