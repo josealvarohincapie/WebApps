@@ -27,3 +27,62 @@ textarea {
         padding: 0;
     }
 }
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #f0f0f0;
+    color: black;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+    .btn i {
+        margin-right: 5px;
+    }
+
+.amarillo {
+    background-color: orange;
+}
+
+.verde {
+    background-color: green;
+}
+
+.gris {
+    background-color: gray;
+}
+
+.rojo {
+    background-color: red;
+}

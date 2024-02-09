@@ -75,146 +75,140 @@
 <body>
     <form method="post">
         <div class="button-container">
-            <button class="btn amarillo"><i class="fas fa-print"></i> Imprimir Pantalla</button>
-            <button class="btn verde" type="submit" asp-controller="ClasificacionPeticion" asp-action="RadicarPeticion"><i class="fas fa-save"></i> Guardar/Radicar</button>
-            <button class="btn amarillo"><i class="fas fa-sync-alt"></i> Ver trámite</button>
-            <button class="btn gris"><i class="fas fa-eye"></i> Ver etiqueta</button>
-            <button class="btn rojo"><i class="fas fa-circle"></i> Enviar</button>
-        </div>
+            <asp:Button ID="BtnImprimir" runat="server" CssClass="btn amarillo" Text="Imprimir Pantalla"></asp:Button>
 
+            <asp:Button ID="BtnGuardar" runat="server" CssClass="btn verde" Text="Guardar/Radicar" PostBackUrl="~/ClasificacionPeticion/RadicarPeticion">            
+            </asp:Button>
+
+            <asp:Button ID="BtnVerTramite" runat="server" CssClass="btn amarillo" Text="Ver trámite">
+            </asp:Button>
+
+            <asp:Button ID="BtnVerEtiqueta" runat="server" CssClass="btn gris" Text="Ver etiqueta">
+            </asp:Button>
+
+            <asp:Button ID="BtnEnviar" runat="server" CssClass="btn rojo" Text="Enviar">
+            </asp:Button>
+
+        </div>
         <div class="help-text">
             ASESORÍA: La asesoría consiste en orientar al peticionario en el ejercicio y defensa de los derechos humanos, ante las autoridades competentes o ante las entidades de carácter privado.
         </div>
         <div class="form-row">
-            <label for="tipoPeticion">Tipo de petición:</label>
-            <input type="text" id="tipoPeticion" name="tipoPeticion" value="@Model.DescTipoPeticion">
+        <asp:Label ID="LabelTipoPeticion" runat="server" AssociatedControlID="tipoPeticion" Text="Tipo de petición:"></asp:Label>
+        <asp:TextBox ID="TxtTipoPeticion" runat="server" Text='<%# Bind("DescTipoPeticion") %>'></asp:TextBox>
+        <span class="input-group-btn">
+        <asp:Button ID="Button1" runat="server" CssClass="btn btn-default btn-medium" Text="">
+        </asp:Button>
+        <asp:Button ID="Button2" runat="server" CssClass="btn btn-success btn-medium btn-margin-catalogo btn-file" Text="&nbsp;" OnClick="Button2_Click">
+        </asp:Button>
+        </span>
+        </div>
+        <style>
+            .form-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .form-row label {
+                    margin-right: 10px;
+            }
+
+            .form-row input[type="text"] {
+                    flex-grow: 1;
+                    margin-right: 10px;
+            }
+
+            .btn-medium {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .btn-margin-catalogo {
+                margin-right: 5px;
+            }
+        </style>
+       <div class="form-row">
+            <asp:Label ID="LabelAreaDerecho" runat="server" AssociatedControlID="DropDownListAreaDerecho" Text="Área de derecho:"></asp:Label>
+            <asp:DropDownList ID="DropDownListAreaDerecho" runat="server" DataSourceID="SqlDataSource1" DataTextField="TextFieldName" DataValueField="ValueFieldName" AppendDataBoundItems="true">
+                <asp:ListItem Text="-- Seleccione un valor --" Value=""></asp:ListItem>
+            </asp:DropDownList>
+       </div>
+       <div class="form-row">
+            <asp:Label ID="LabelDerechos" runat="server" AssociatedControlID="txtDerechos" Text="Derechos:"></asp:Label>
+            <asp:TextBox ID="txtDerechos" runat="server" Text="mateo"></asp:TextBox>
             <span class="input-group-btn">
-                <button type="button" class="btn btn-default btn-medium">
-                    <i class="fa fa-close"></i>
-                </button>
-                <button type="button" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
-                    <i class="fa fa-search"></i>&nbsp;
-                </button>
-
+            <asp:Button ID="btnClose" runat="server" CssClass="btn btn-default btn-medium" Text="">
+            </asp:Button>
+            <asp:Button ID="btnSearch" runat="server" CssClass="btn btn-success btn-medium btn-margin-catalogo btn-file" Text="&nbsp;" OnClick="btnSearch_Click">
+            </asp:Button>
             </span>
-            <style>
-                .form-row {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                }
-
-                    .form-row label {
-                        margin-right: 10px;
-                    }
-
-                    .form-row input[type="text"] {
-                        flex-grow: 1;
-                        margin-right: 10px;
-                    }
-
-                .input-group-btn {
-                    display: flex;
-                }
-
-                .btn-medium {
-                    padding: 0.5rem 0.75rem;
-                }
-
-                .btn-margin-catalogo {
-                    margin-right: 5px;
-                }
-            </style>
         </div>
+        <style>
+            .form-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+                .form-row label {
+                    margin-right: 10px;
+                }
+
+                .form-row input[type="text"], .form-row select {
+                    flex-grow: 1;
+                    margin-right: 10px;
+                }
+
+            .input-group-btn {
+                display: flex;
+            }
+
+            .btn-medium {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .btn-margin-catalogo {
+                margin-right: 5px;
+            }
+        </style>
 
         <div class="form-row">
-            <label for="areaDerecho">Área de derecho:</label>
-            @Html.DropDownListFor(model => model.ListaAreaDerecho, Model.ListaAreaDerecho, "-- Seleccione un valor --")
-        </div>
-
-        <div class="form-row">
-            <label for="derechos">Derechos:</label>
-            
-            <asp:TextBox ID="txtDerechos" Text="mateo" runat="server"></asp:TextBox>
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default btn-medium">
-                    <i class="fa fa-close"></i>
-                </button>
-                <button type="button" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
-                    <i class="fa fa-search"></i>&nbsp;
-                </button>
-            </span>
-            <style>
-                .form-row {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                }
-
-                    .form-row label {
-                        margin-right: 10px;
-                    }
-
-                    .form-row input[type="text"] {
-                        flex-grow: 1;
-                        margin-right: 10px;
-                    }
-
-                .input-group-btn {
-                    display: flex;
-                }
-
-                .btn-medium {
-                    padding: 0.5rem 0.75rem;
-                }
-
-                .btn-margin-catalogo {
-                    margin-right: 5px;
-                }
-            </style>
-        </div>
-
-        <div class="form-row">
-            <label for="descripcionAsesoria">Descripción de asesoría:</label>
-            <textarea id="descripcionAsesoria" name="descripcionAsesoria"></textarea>
-        </div>
-
-        <div class="form-row">
-            <label for="observaciones">Observaciones:</label>
-            <textarea id="observaciones" name="observaciones">@Model.Observaciones</textarea>
+            <asp:Label ID="LabelDescripcionAsesoria" runat="server" AssociatedControlID="descripcionAsesoria" Text="Descripción de asesoría:"></asp:Label>
+            <asp:TextBox ID="TxtDescripcionAsesoria" runat="server" TextMode="MultiLine"Text='<%# Bind("descripcionAsesoria") %>'></asp:TextBox>
         </div>
 
 
+        <div class="form-row">
+            <asp:Label ID="LabelObservaciones" runat="server" AssociatedControlID="observaciones" Text="Observaciones:"></asp:Label>
+            <asp:TextBox ID="TxtObservaciones" runat="server" TextMode="MultiLine" Text='<%# Bind("Observaciones") %>'></asp:TextBox>
+        </div>
 
         <div class="form-row">
-            <label>¿La asesoría debe generar respuesta por escrito?</label>
+            <asp:Label runat="server" Text="¿La asesoría debe generar respuesta por escrito?"></asp:Label>
             <div class="radio-group">
                 <div>
-                    <input type="radio" id="respuestaEscritaSi" name="respuestaEscrita" value="si" onclick="OcultarConclusiones()">
-                    <label for="respuestaEscritaSi">Sí</label>
+                    <asp:RadioButton ID="respuestaEscritaSi" runat="server" GroupName="respuestaEscrita" Text="Sí" OnCheckedChanged="OcultarConclusiones_Server" AutoPostBack="true" />
+                    <asp:Label runat="server" AssociatedControlID="respuestaEscritaSi">Sí</asp:Label>
                 </div>
                 <div>
-                    <input type="radio" id="respuestaEscritaNo" name="respuestaEscrita" value="no" onclick="OcultarConclusiones()">
-                    <label for="respuestaEscritaNo">No</label>
+                    <asp:RadioButton ID="respuestaEscritaNo" runat="server" GroupName="respuestaEscrita" Text="No" OnCheckedChanged="OcultarConclusiones_Server" AutoPostBack="true" />
+                    <asp:Label runat="server" AssociatedControlID="respuestaEscritaNo">No</asp:Label>
                 </div>
             </div>
         </div>
-
-
-
         <div class="form-row" id="divConclusionAsesoria">
-            <label class="control-label col-sm-4" for="conclusionAsesoria">Conclusión de asesoría:</label>
-            <textarea id="txtConclusionAsesoria" name="conclusionAsesoria">@Model.ConclusionAsesoria</textarea>
+            <asp:Label ID="LabelConclusionAsesoria" runat="server" AssociatedControlID="txtConclusionAsesoria" CssClass="control-label col-sm-4" Text="Conclusión de asesoría:"></asp:Label>
+            <asp:TextBox ID="txtConclusionAsesoria" runat="server" TextMode="MultiLine" Rows="4" Columns="50" Text='<%# Bind("ConclusionAsesoria") %>'></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;
 
             <span class="input-group-btn">
-                <button type="button" id="btnLimpiarConclusionAsesoria" onclick="LimpiarConclusionesAsesorias()" class="btn btn-default btn-medium">
-                    <i class="fa fa-close"></i>
-                </button>
-                <button type="button" id="btnBuscarConclusionAsesoria" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
-                    <i class="fa fa-search"></i>&nbsp;
-                </button>
+                <asp:Button ID="btnLimpiarConclusionAsesoria" runat="server" CssClass="btn btn-default btn-medium" OnClientClick="LimpiarConclusionesAsesorias(); return false;" Text="">
+                </asp:Button>
+                <asp:Button ID="btnBuscarConclusionAsesoria" runat="server" CssClass="btn btn-success btn-medium btn-margin-catalogo btn-file" OnClick="btnBuscarConclusionAsesoria_Click" Text="&nbsp;">
+                </asp:Button>
             </span>
+          </div>
+
             <style>
                 .form-row {
                     display: flex;
@@ -226,7 +220,7 @@
                         margin-right: 10px;
                     }
 
-                    .form-row input[type="text"] {
+                    .form-row input[type="text"], .form-row textarea {
                         flex-grow: 1;
                         margin-right: 10px;
                     }
@@ -243,8 +237,7 @@
                     margin-right: 5px;
                 }
             </style>
-
-    </form>
+     </form>
 </body>
 </html>
 
