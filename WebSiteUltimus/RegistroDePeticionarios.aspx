@@ -243,8 +243,6 @@
                     margin-right: 5px;
                 }
             </style>
-        </div>
-
 
     </form>
 </body>
