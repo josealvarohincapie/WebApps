@@ -16,11 +16,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Logica\Negocio.c
 		{64C49D03-B3DF-4574-B1EC-B9008F50D22D} = {64C49D03-B3DF-4574-B1EC-B9008F50D22D}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppAPI", "WebAppAPI\WebAppAPI.csproj", "{AF3DA9E4-0F8C-48B5-AACE-1D61A229E732}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppAPI", "WebAppAPI\WebAppAPI.csproj", "{AF3DA9E4-0F8C-48B5-AACE-1D61A229E732}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSiteUltimus", "WebSiteUltimus\", "{45FD80F1-7BBB-48FB-88B9-13AFEFDD0561}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8.1"
+		ProjectReferences = "{939f80b3-7f5b-4592-88bd-15d98c6b344d}|Logica.dll;{64C49D03-B3DF-4574-B1EC-B9008F50D22D}|AccesoDatos.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_60871"
 		Debug.AspNetCompiler.PhysicalPath = "WebSiteUltimus\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60871\"
