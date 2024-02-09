@@ -67,19 +67,19 @@
             }
     </style>
 </head>
-<body>    
-    <form method="post">      
-        <div class="button-container">
-            <button class="btn amarillo"><i class="fas fa-print"></i> Imprimir Pantalla</button>
-            <button class="btn verde" type="submit" asp-controller="ClasificacionPeticion" asp-action="RadicarPeticion"><i class="fas fa-save"></i> Guardar/Radicar</button>
-            <button class="btn amarillo"><i class="fas fa-sync-alt"></i> Ver trámite</button>
-            <button class="btn gris"><i class="fas fa-eye"></i> Ver etiqueta</button>
-            <button class="btn rojo"><i class="fas fa-circle"></i> Enviar</button>
-        </div>
+<body>
+    <div class="button-container">
+        <button class="btn amarillo"><i class="fas fa-print"></i> Imprimir Pantalla</button>
+        <button class="btn verde"><i class="fas fa-save"></i> Guardar/Radicar</button>
+        <button class="btn amarillo"><i class="fas fa-sync-alt"></i> Ver trámite</button>
+        <button class="btn gris"><i class="fas fa-eye"></i> Ver etiqueta</button>
+        <button class="btn rojo"><i class="fas fa-circle"></i> Enviar</button>
+    </div>
 
-        <div class="help-text">
-            ASESORÍA: La asesoría consiste en orientar al peticionario en el ejercicio y defensa de los derechos humanos, ante las autoridades competentes o ante las entidades de carácter privado.
-        </div>
+    <div class="help-text">
+        ASESORÍA: La asesoría consiste en orientar al peticionario en el ejercicio y defensa de los derechos humanos, ante las autoridades competentes o ante las entidades de carácter privado.
+    </div>
+    <form>
         <div class="form-row">
             <label for="tipoPeticion">Tipo de petición:</label>
             <input type="text" id="tipoPeticion" name="tipoPeticion" value="@Model.DescTipoPeticion">
@@ -124,7 +124,7 @@
 
         <div class="form-row">
             <label for="areaDerecho">Área de derecho:</label>
-            @Html.DropDownListFor(model =>model.ListaAreaDerecho,  Model.ListaAreaDerecho,"-- Seleccione un valor --")
+            @Html.DropDownListFor(model =>model.AreaDerecho,  Model.AreaDerecho,"Selecciona un valor")
         </div>
 
         <div class="form-row">
@@ -167,15 +167,18 @@
                 }
             </style>
         </div>
+        
+
+
 
         <div class="form-row">
             <label for="descripcionAsesoria">Descripción de asesoría:</label>
-            <textarea id="descripcionAsesoria" name="descripcionAsesoria"></textarea>            
+            <textarea id="descripcionAsesoria" name="descripcionAsesoria">@Model.DescripcionAsesorias</textarea>
         </div>
 
         <div class="form-row">
             <label for="observaciones">Observaciones:</label>
-            <textarea id="observaciones" name="observaciones">@Model.Observaciones</textarea>            
+            <textarea id="observaciones" name="observaciones">@Model.Observaciones</textarea>
         </div>
 
        
@@ -198,7 +201,7 @@
         
         <div class="form-row" id="divConclusionAsesoria">
             <label class="control-label col-sm-4" for="conclusionAsesoria">Conclusión de asesoría:</label>
-            <textarea id="txtConclusionAsesoria" name="conclusionAsesoria">@Model.ConclusionAsesoria</textarea>
+            <textarea id="txtConclusionAsesoria" name="conclusionAsesoria"></textarea>
             &nbsp;&nbsp;&nbsp;&nbsp;
             
             <span class="input-group-btn">
