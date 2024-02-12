@@ -247,12 +247,21 @@
 
         </div>
         <div class="tab-links">
-            <a href="#" class="active" onclick="openTab(event, 'Tab1')">Clasificación de la petición</a>
-            <a href="#" onclick="openTab(event, 'Tab2')">Pestaña 2</a>
-            <a href="#" onclick="openTab(event, 'Tab3')">Pestaña 3</a>
+            <a href="#" onclick="openTab(event, 'Tab1')">Información del radicado</a>
+            <a href="#" onclick="openTab(event, 'Tab2')">Anexos del radicado recibido</a>
+            <a href="#" class="active" onclick="openTab(event, 'Tab3')">Clasificación de la petición</a>
+            <a href="#" onclick="openTab(event, 'Tab4')">Decisión</a>
+            <a href="#" onclick="openTab(event, 'Tab5')">Pestaña 3</a>
         </div>
-
-        <div id="Tab1" class="tab active">
+        <div id="Tab1" class="tab">
+            <h2>Contenido de la Pestaña 1</h2>
+            <p>Este es el contenido de la segunda pestaña.</p>
+        </div>
+                <div id="Tab2" class="tab">
+            <h2>Contenido de la Pestaña 2</h2>
+            <p>Este es el contenido de la segunda pestaña.</p>
+        </div>
+        <div id="Tab3" class="tab active">
             <div class="help-text">
                 ASESORÍA: La asesoría consiste en orientar al peticionario en el ejercicio y defensa de los derechos humanos, ante las autoridades competentes o ante las entidades de carácter privado.
             </div>
@@ -377,12 +386,12 @@
             }
             </script>        
 
-        <div id="Tab2" class="tab">
+        <div id="Tab4" class="tab">
             <h2>Contenido de la Pestaña 2</h2>
             <p>Este es el contenido de la segunda pestaña.</p>
         </div>
 
-        <div id="Tab3" class="tab">
+        <div id="Tab5" class="tab">
             <h2>Contenido de la Pestaña 3</h2>
             <p>Este es el contenido de la tercera pestaña.</p>
         </div>
