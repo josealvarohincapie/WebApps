@@ -212,6 +212,24 @@
         .auto-style2 {
             width: 421px;
         }
+        
+        .tab {
+            display: none;
+        }
+        .tab.active {
+            display: block;
+        }
+        .tab-links a {
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: inline-block;
+            background: #f0f0f0;
+            color: #000;
+            text-decoration: none;
+        }
+        .tab-links a.active {
+            background: #ddd;
+        }
     </style>
 </head>
 <body>
@@ -228,112 +246,146 @@
             <asp:Button ID="BtnEnviar" runat="server" CssClass="btn rojo" Text="Enviar"></asp:Button>
 
         </div>
-        <div class="help-text">
-            ASESORÍA: La asesoría consiste en orientar al peticionario en el ejercicio y defensa de los derechos humanos, ante las autoridades competentes o ante las entidades de carácter privado.
+        <div class="tab-links">
+            <a href="#" class="active" onclick="openTab(event, 'Tab1')">Clasificación de la petición</a>
+            <a href="#" onclick="openTab(event, 'Tab2')">Pestaña 2</a>
+            <a href="#" onclick="openTab(event, 'Tab3')">Pestaña 3</a>
         </div>
 
-        <table style="width: 100%;">
-            <tr>
-                <td class="auto-style1">
-                    <asp:Label ID="LabelTipoPeticion" runat="server" Text="Tipo de petición:"></asp:Label></td>
-                <td class="auto-style2">
-                    <asp:TextBox ID="TxtTipoPeticion" runat="server" Width="388px"></asp:TextBox></td>
-                <td>
-                    <span class="input-group-btn">
-                        <button type="button" id="tnLimpiarConclusionAsesoria" class="btn btn-default btn-medium">
-                            <i class="fa fa-close"></i>
-                        </button>
-                        <button type="button" id="tnBuscarConclusionAsesoria" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
-                            <i class="fa fa-search"></i>&nbsp;
-                        </button>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style1">
-                    <div class="form-row">
-                        <asp:Label ID="LabelAreaDerecho" runat="server" Text="Área de derecho:"></asp:Label>
+        <div id="Tab1" class="tab active">
+            <div class="help-text">
+                ASESORÍA: La asesoría consiste en orientar al peticionario en el ejercicio y defensa de los derechos humanos, ante las autoridades competentes o ante las entidades de carácter privado.
+            </div>
 
-                    </div>
-                </td>
-                <td class="auto-style2">
-                    <asp:DropDownList ID="DropDownListAreaDerecho" runat="server" DataTextField="TextFieldName" DataValueField="ValueFieldName" AppendDataBoundItems="true">
-                        <asp:ListItem Text="-- Seleccione un valor --" Value=""></asp:ListItem>
-                    </asp:DropDownList></td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style1">
-                    <asp:Label ID="LabelDerechos" runat="server" Text="Derechos:"></asp:Label>
-                </td>
-                <td class="auto-style2">
-                    <asp:TextBox ID="txtDerechos" runat="server" Text="mateo"></asp:TextBox></td>
-                <td><span class="input-group-btn">
-                    <button type="button" id="btnLimpiarDerechos" onclick="LimpiarConclusionesAsesorias()" class="btn btn-default btn-medium">
-                        <i class="fa fa-close"></i>
-                    </button>
-                    <button type="button" id="btnBuscarDerechos" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
-                        <i class="fa fa-search"></i>&nbsp;
-                    </button>
-                </span></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="LabelDescripcionAsesoria" runat="server" Text="Descripción de asesoría:"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="TxtDescripcionAsesoria" runat="server" TextMode="MultiLine"></asp:TextBox></td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="form-row">
-                        <asp:Label ID="LabelObservaciones" runat="server" Text="Observaciones:"></asp:Label>
+                <table style="width: 100%;">
+                    <tr>
+                        <td class="auto-style1">
+                            <asp:Label ID="LabelTipoPeticion" runat="server" Text="Tipo de petición:"></asp:Label></td>
+                        <td class="auto-style2">
+                            <asp:TextBox ID="TxtTipoPeticion" runat="server" Width="388px"></asp:TextBox></td>
+                        <td>
+                            <span class="input-group-btn">
+                                <button type="button" id="tnLimpiarConclusionAsesoria" class="btn btn-default btn-medium">
+                                    <i class="fa fa-close"></i>
+                                </button>
+                                <button type="button" id="tnBuscarConclusionAsesoria" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
+                                    <i class="fa fa-search"></i>&nbsp;
+                                </button>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style1">
+                            <div class="form-row">
+                                <asp:Label ID="LabelAreaDerecho" runat="server" Text="Área de derecho:"></asp:Label>
 
-                    </div>
-                </td>
-                <td>
-                    <asp:TextBox ID="TxtObservaciones" runat="server" TextMode="MultiLine" Text='<%# Bind("Observaciones") %>'></asp:TextBox></td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label runat="server" Text="¿La asesoría debe generar respuesta por escrito?"></asp:Label>
+                            </div>
+                        </td>
+                        <td class="auto-style2">
+                            <asp:DropDownList ID="DropDownListAreaDerecho" runat="server" DataTextField="TextFieldName" DataValueField="ValueFieldName" AppendDataBoundItems="true">
+                                <asp:ListItem Text="-- Seleccione un valor --" Value=""></asp:ListItem>
+                            </asp:DropDownList></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style1">
+                            <asp:Label ID="LabelDerechos" runat="server" Text="Derechos:"></asp:Label>
+                        </td>
+                        <td class="auto-style2">
+                            <asp:TextBox ID="txtDerechos" runat="server" Text="mateo"></asp:TextBox></td>
+                        <td><span class="input-group-btn">
+                            <button type="button" id="btnLimpiarDerechos" onclick="LimpiarConclusionesAsesorias()" class="btn btn-default btn-medium">
+                                <i class="fa fa-close"></i>
+                            </button>
+                            <button type="button" id="btnBuscarDerechos" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
+                                <i class="fa fa-search"></i>&nbsp;
+                            </button>
+                        </span></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="LabelDescripcionAsesoria" runat="server" Text="Descripción de asesoría:"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="TxtDescripcionAsesoria" runat="server" TextMode="MultiLine"></asp:TextBox></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-row">
+                                <asp:Label ID="LabelObservaciones" runat="server" Text="Observaciones:"></asp:Label>
 
-                </td>
-                <td>
-                    <div class="radio-group">
-                        <div>
-                            <asp:RadioButton ID="respuestaEscritaSi" runat="server" GroupName="respuestaEscrita" Text="Sí" />
-                            <asp:RadioButton ID="respuestaEscritaNo" runat="server" GroupName="respuestaEscrita" Text="No" />
-                        </div>
-                    </div>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="LabelConclusionAsesoria" runat="server" CssClass="control-label col-sm-4" Text="Conclusión de asesoría:"></asp:Label>
+                            </div>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="TxtObservaciones" runat="server" TextMode="MultiLine" Text='<%# Bind("Observaciones") %>'></asp:TextBox></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label runat="server" Text="¿La asesoría debe generar respuesta por escrito?"></asp:Label>
 
-                </td>
-                <td>
-                    <asp:TextBox ID="txtConclusionAsesoria" runat="server" TextMode="MultiLine" Rows="4" Columns="50" Text='<%# Bind("ConclusionAsesoria") %>'></asp:TextBox></td>
-                <td>
-                    <span class="input-group-btn">
-                        <button type="button" id="btnLimpiarConclusionAsesoria" onclick="LimpiarConclusionesAsesorias()" class="btn btn-default btn-medium">
-                            <i class="fa fa-close"></i>
-                        </button>
-                        <button type="button" id="btnBuscarConclusionAsesoria" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
-                            <i class="fa fa-search"></i>&nbsp;
-                        </button>
-                    </span></td>
-            </tr>
-        </table>
+                        </td>
+                        <td>
+                            <div class="radio-group">
+                                <div>
+                                    <asp:RadioButton ID="respuestaEscritaSi" runat="server" GroupName="respuestaEscrita" Text="Sí" />
+                                    <asp:RadioButton ID="respuestaEscritaNo" runat="server" GroupName="respuestaEscrita" Text="No" />
+                                </div>
+                            </div>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="LabelConclusionAsesoria" runat="server" CssClass="control-label col-sm-4" Text="Conclusión de asesoría:"></asp:Label>
+
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtConclusionAsesoria" runat="server" TextMode="MultiLine" Rows="4" Columns="50" Text='<%# Bind("ConclusionAsesoria") %>'></asp:TextBox></td>
+                        <td>
+                            <span class="input-group-btn">
+                                <button type="button" id="btnLimpiarConclusionAsesoria" onclick="LimpiarConclusionesAsesorias()" class="btn btn-default btn-medium">
+                                    <i class="fa fa-close"></i>
+                                </button>
+                                <button type="button" id="btnBuscarConclusionAsesoria" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
+                                    <i class="fa fa-search"></i>&nbsp;
+                                </button>
+                            </span></td>
+                    </tr>
+                </table>
+        </div>
+            
+            <script>
+            function openTab(evt, tabName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tab");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tab-links")[0].getElementsByTagName("a");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(tabName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+            </script>        
+
+        <div id="Tab2" class="tab">
+            <h2>Contenido de la Pestaña 2</h2>
+            <p>Este es el contenido de la segunda pestaña.</p>
+        </div>
+
+        <div id="Tab3" class="tab">
+            <h2>Contenido de la Pestaña 3</h2>
+            <p>Este es el contenido de la tercera pestaña.</p>
+        </div>
 
 
 
