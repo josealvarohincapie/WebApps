@@ -23,7 +23,7 @@ public partial class RegistroDePeticionarios : System.Web.UI.Page
     {
 
     }
-    protected void btnSubirDocumento_Click(object sender, EventArgs e)
+        protected void btnSubirDocumento_Click(object sender, EventArgs e)
     {
         if (fileUploadDocumento.HasFile)
         {

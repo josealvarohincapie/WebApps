@@ -17,10 +17,10 @@
     <script type="text/javascript">
         function imprimirPagina() {
             window.print();
-            return false; // Para evitar que se realice un postback
+            return false; 
         }
     </script>
-
+    
     <title>Formulario de Asesoría</title>
     <style>
         @media (min-width: 768px) {
@@ -253,6 +253,11 @@
      
 
     </style>
+    <script type="text/javascript">
+        function limpiarCampo(textBoxClientId) {
+            document.getElementById(textBoxClientId).value = '';
+        }
+    </script>
     <script>
 
         $(function () {
@@ -305,9 +310,9 @@
                                     <asp:Label ID="LblCanalAtencion" runat="server" Text="Canal de atención:"></asp:Label>
                                 </td>
                                 <td class="auto-style2">
-                                    <asp:TextBox ID="txtCanalAtencion" runat="server" Text="Escrito" OnTextChanged="txtCanalAtencion_TextChanged"></asp:TextBox></td>
+                                    <asp:TextBox ID="txtCanalAtencion" runat="server" Text="" OnTextChanged="txtCanalAtencion_TextChanged"></asp:TextBox></td>
                                 <td><span class="input-group-btn">
-                                    <button type="button" id="btnLimpiarCanalAtencion" onclick="LimpiarCanalAtencion()" class="btn btn-default btn-medium">
+                                    <button type="button" id="btnLimpiarCanalAtencion"  onclick="limpiarCampo('<%= txtCanalAtencion.ClientID %>')" class="btn btn-default btn-medium">
                                         <i class="fa fa-close"></i>
                                     </button>
                                     <button type="button" id="btnCanalAtencion" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
@@ -330,7 +335,7 @@
                                 <td class="auto-style2">
                                     <asp:TextBox ID="txtTipoSolicitante" runat="server" Text="Persona natural" ></asp:TextBox></td>
                                 <td><span class="input-group-btn">
-                                    <button type="button" id="btnLimpiarTipoSolicitante" onclick="LimpiarTipoSolicitante()" class="btn btn-default btn-medium">
+                                    <button type="button" id="btnLimpiarTipoSolicitante" onclick="limpiarCampo('<%= txtTipoSolicitante.ClientID %>')" class="btn btn-default btn-medium">
                                         <i class="fa fa-close"></i>
                                     </button>
                                     <button type="button" id="btnTipoSolicitante" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
@@ -351,7 +356,7 @@
                                     <td class="auto-style2">
                                         <asp:TextBox ID="txtTipoDocumento" runat="server" Text="C.C" ></asp:TextBox></td>
                                     <td><span class="input-group-btn">
-                                        <button type="button" id="btnLimpiarTipoDocumento" onclick="LimpiarTipoDocumento()" class="btn btn-default btn-medium">
+                                        <button type="button" id="btnLimpiarTipoDocumento" onclick="limpiarCampo('<%= txtTipoDocumento.ClientID %>')" class="btn btn-default btn-medium">
                                             <i class="fa fa-close"></i>
                                         </button>
                                         <button type="button" id="btnTipoDocumento" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
@@ -398,7 +403,7 @@
                                 <td class="auto-style2">
                                     <asp:TextBox ID="txtSexoAsignado" runat="server" Text="" ></asp:TextBox></td>
                                 <td><span class="input-group-btn">
-                                    <button type="button" id="btnLimpiarSexoAsignado" onclick="LimpiarSexoAsignado()" class="btn btn-default btn-medium">
+                                    <button type="button" id="btnLimpiarSexoAsignado" onclick="limpiarCampo('<%= txtSexoAsignado.ClientID %>')" class="btn btn-default btn-medium">
                                         <i class="fa fa-close"></i>
                                     </button>
                                     <button type="button" id="btnSexoAsignado" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
@@ -411,9 +416,9 @@
                                     <asp:Label ID="lblIdentidadGenero" runat="server" Text="Identidad de género:"></asp:Label>
                                 </td>
                                 <td class="auto-style2">
-                                    <asp:TextBox ID="TextBox1" runat="server" Text="" ></asp:TextBox></td>
+                                    <asp:TextBox ID="txtIdentidadGenero" runat="server" Text="" ></asp:TextBox></td>
                                 <td><span class="input-group-btn">
-                                    <button type="button" id="btnLimpiarIdentidadGenero" onclick="LimpiarIdentidadGenero()" class="btn btn-default btn-medium">
+                                    <button type="button" id="btnLimpiarIdentidadGenero" onclick="limpiarCampo('<%= txtIdentidadGenero.ClientID %>')" class="btn btn-default btn-medium">
                                         <i class="fa fa-close"></i>
                                     </button>
                                     <button type="button" id="btnIdentidadGenero" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
@@ -428,7 +433,7 @@
                                 <td class="auto-style2">
                                     <asp:TextBox ID="txtOrientacionSexual" runat="server" Text="" ></asp:TextBox></td>
                                 <td><span class="input-group-btn">
-                                    <button type="button" id="btnLimpiarOrientacionSexual" onclick="LimpiarOrientacionSexual()" class="btn btn-default btn-medium">
+                                    <button type="button" id="btnLimpiarOrientacionSexual" onclick="limpiarCampo('<%= txtOrientacionSexual.ClientID %>')"" class="btn btn-default btn-medium">
                                         <i class="fa fa-close"></i>
                                     </button>
                                     <button type="button" id="btnOrientacionSexual" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
@@ -443,7 +448,7 @@
                                 <td class="auto-style2">
                                     <asp:TextBox ID="txtExpresionGenero" runat="server" Text="" ></asp:TextBox></td>
                                 <td><span class="input-group-btn">
-                                    <button type="button" id="btnLimpiarExpresionGenero" onclick="LimpiarExpresionGenero()" class="btn btn-default btn-medium">
+                                    <button type="button" id="btnLimpiarExpresionGenero" onclick="limpiarCampo('<%= txtExpresionGenero.ClientID %>')"" class="btn btn-default btn-medium">
                                         <i class="fa fa-close"></i>
                                     </button>
                                     <button type="button" id="btnExpresionGenero" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
@@ -458,7 +463,7 @@
                                 <td class="auto-style2">
                                     <asp:TextBox ID="txtRangoEdad" runat="server" Text="" ></asp:TextBox></td>
                                 <td><span class="input-group-btn">
-                                    <button type="button" id="btnLimpiarRangoEdad" onclick="LimpiarRangoEdad()" class="btn btn-default btn-medium">
+                                    <button type="button" id="btnLimpiarRangoEdad" onclick="limpiarCampo('<%= txtRangoEdad.ClientID %>')" class="btn btn-default btn-medium">
                                         <i class="fa fa-close"></i>
                                     </button>
                                     <button type="button" id="btnRangoEdad" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
@@ -493,7 +498,7 @@
                             <asp:TextBox ID="TxtTipoPeticion" runat="server" Width="388px"></asp:TextBox></td>
                         <td>
                             <span class="input-group-btn">
-                                <button type="button" id="tnLimpiarConclusionAsesoria" class="btn btn-default btn-medium">
+                                <button type="button" id="tnLimpiarConclusionAsesoria" onclick="limpiarCampo('<%= TxtTipoPeticion.ClientID %>')"class="btn btn-default btn-medium">
                                     <i class="fa fa-close"></i>
                                 </button>
                                 <button type="button" id="tnBuscarConclusionAsesoria" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
@@ -522,7 +527,7 @@
                         <td class="auto-style2">
                             <asp:TextBox ID="txtDerechos" runat="server" Text="mateo"></asp:TextBox></td>
                         <td><span class="input-group-btn">
-                            <button type="button" id="btnLimpiarDerechos" onclick="LimpiarConclusionesAsesorias()" class="btn btn-default btn-medium">
+                            <button type="button" id="btnLimpiarDerechos" onclick="limpiarCampo('<%= txtDerechos.ClientID %>')" class="btn btn-default btn-medium">
                                 <i class="fa fa-close"></i>
                             </button>
                             <button type="button" id="btnBuscarDerechos" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
@@ -578,7 +583,7 @@
                             <asp:TextBox ID="txtConclusionAsesoria" runat="server" TextMode="MultiLine" Rows="4" Columns="50" Text='<%# Bind("ConclusionAsesoria") %>'></asp:TextBox></td>
                         <td>
                             <span class="input-group-btn">
-                                <button type="button" id="btnLimpiarConclusionAsesoria" onclick="LimpiarConclusionesAsesorias()" class="btn btn-default btn-medium">
+                                <button type="button" id="btnLimpiarConclusionAsesoria" onclick="limpiarCampo('<%= txtConclusionAsesoria.ClientID %>')"" class="btn btn-default btn-medium">
                                     <i class="fa fa-close"></i>
                                 </button>
                                 <button type="button" id="btnBuscarConclusionAsesoria" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
@@ -596,11 +601,11 @@
                         <asp:Label ID="lblDecision" runat="server" Text="Decisión:"></asp:Label>
                     </td>
                     <td class="auto-style2">
-                        <asp:TextBox ID="TextBox2" runat="server" Text=""></asp:TextBox>
+                        <asp:TextBox ID="txtDecision" runat="server" Text=""></asp:TextBox>
                     </td>
                     <td>
                         <span class="input-group-btn">
-                            <button type="button" id="btnLimpiarDecision" onclick="LimpiarDecision()" class="btn btn-default btn-medium">
+                            <button type="button" id="btnLimpiarDecision" onclick="limpiarCampo('<%= txtDecision.ClientID %>')" class="btn btn-default btn-medium">
                                 <i class="fa fa-close"></i>
                             </button>
                             <button type="button" id="btnDecision" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
