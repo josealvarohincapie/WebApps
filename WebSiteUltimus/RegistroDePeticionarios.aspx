@@ -625,6 +625,7 @@
             </table>
         </div>
 </div>
+    <asp:HiddenField ID="txtCodigoSolicitud" runat="server" Value="3"></asp:HiddenField>
      </form>
 </body>
 </html>

@@ -10,6 +10,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppAsesorias", "WebAppAs
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDatos", "AccesoDatos\AccesoDatos.csproj", "{64C49D03-B3DF-4574-B1EC-B9008F50D22D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AFAB8AE6-B400-4713-94A2-E9EFDD1C9D91} = {AFAB8AE6-B400-4713-94A2-E9EFDD1C9D91}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Logica\Negocio.csproj", "{939F80B3-7F5B-4592-88BD-15D98C6B344D}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -21,7 +24,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSiteUltimus", "WebSiteUltimus\", "{45FD80F1-7BBB-48FB-88B9-13AFEFDD0561}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8.1"
-		ProjectReferences = "{939f80b3-7f5b-4592-88bd-15d98c6b344d}|Logica.dll;{64C49D03-B3DF-4574-B1EC-B9008F50D22D}|AccesoDatos.dll;"
+		ProjectReferences = "{939f80b3-7f5b-4592-88bd-15d98c6b344d}|Logica.dll;{64C49D03-B3DF-4574-B1EC-B9008F50D22D}|AccesoDatos.dll;{AFAB8AE6-B400-4713-94A2-E9EFDD1C9D91}|Modelo.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_60871"
 		Debug.AspNetCompiler.PhysicalPath = "WebSiteUltimus\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60871\"
@@ -40,6 +43,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSiteUltimus", "WebSiteUl
 		SlnRelativePath = "WebSiteUltimus\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo\Modelo.csproj", "{AFAB8AE6-B400-4713-94A2-E9EFDD1C9D91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +72,10 @@ Global
 		{45FD80F1-7BBB-48FB-88B9-13AFEFDD0561}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45FD80F1-7BBB-48FB-88B9-13AFEFDD0561}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{45FD80F1-7BBB-48FB-88B9-13AFEFDD0561}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{AFAB8AE6-B400-4713-94A2-E9EFDD1C9D91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFAB8AE6-B400-4713-94A2-E9EFDD1C9D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFAB8AE6-B400-4713-94A2-E9EFDD1C9D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFAB8AE6-B400-4713-94A2-E9EFDD1C9D91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

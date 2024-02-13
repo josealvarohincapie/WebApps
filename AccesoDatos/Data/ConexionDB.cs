@@ -5,7 +5,7 @@ namespace AccesoDatos.Data
 {
     public class ConexionDB
     {
-        private SqlConnection Conexion = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=ejemplo;Trusted_Connection=True;");
+        private SqlConnection Conexion = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=defensoria;Trusted_Connection=True;");
 
         public SqlConnection AbrirConexion()
         {

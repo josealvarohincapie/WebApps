@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dto\ParametroDTO.cs" />
+    <Compile Include="Logica\RadicadoLogica.cs" />
     <Compile Include="Logica\ParametroLogica.cs" />
     <Compile Include="Logica\ClasificacionPeticionLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -50,6 +50,10 @@
     <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">
       <Project>{64C49D03-B3DF-4574-B1EC-B9008F50D22D}</Project>
       <Name>AccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{afab8ae6-b400-4713-94a2-e9efdd1c9d91}</Project>
+      <Name>Modelo</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

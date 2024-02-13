@@ -1,6 +1,5 @@
 ﻿using AccesoDatos.Data;
-using Logica.dto;
-using System;
+using Modelo.dto;
 using System.Collections.Generic;
 using System.Data;
 
@@ -24,10 +23,6 @@ namespace Logica
             }
 
             return lista;
-        }
-        public static void main(String[] args)
-        {
-            Console.WriteLine("Hola mundo");
-        }
+        } 
     }
 }

@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections.Generic;
 using System.IO;
+using Modelo.dto;
 
 public partial class RegistroDePeticionarios : System.Web.UI.Page
 {
@@ -52,4 +53,27 @@ public partial class RegistroDePeticionarios : System.Web.UI.Page
     }
 
 
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        List<RadicadoDTO> radicados = new List<RadicadoDTO>();
+
+        RadicadoLogica radicadoLogica = new RadicadoLogica();
+
+        try
+        {
+
+            Int64 codigoSolicitud = Int64.Parse(txtCodigoSolicitud.Value.Trim());
+
+            radicados = radicadoLogica.ConsultarDatosRadicadoPorCodigo(codigoSolicitud);
+
+            if (radicados != null)
+            {
+                txtNumeroRadicado.Text = radicados[0].NumeroRadicado;
+            }
+        } catch (Exception ex)
+        {
+            txtNumeroRadicado.Text = "mateo dacartec";
+        }
+    }
 }
