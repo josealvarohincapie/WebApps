@@ -4,9 +4,7 @@
 // Write your JavaScript code.
 
 
-function LimpiarConclusionesAsesorias() {
-    document.getElementById("txtConclusionAsesoria").value = "";
-}
+
 function OcultarConclusiones() {
 
     var x = document.getElementById("divConclusionAsesoria");
@@ -27,3 +25,7 @@ function OcultarConclusiones() {
         btnBuscarConclusionAsesoria.hidden = true;
     }
 }
+    function imprimirPagina() {
+        window.print();
+        return false;
+    }

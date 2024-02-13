@@ -494,17 +494,17 @@
                     <tr>
                         <td class="auto-style1">
                             <asp:Label ID="LabelTipoPeticion" runat="server" Text="Tipo de petición:"></asp:Label></td>
-                        <td class="auto-style2">
-                            <asp:TextBox ID="TxtTipoPeticion" runat="server" Width="388px"></asp:TextBox></td>
-                        <td>
-                            <span class="input-group-btn">
+                        <td class="auto-style2 btn ">
+                            <asp:TextBox ID="TxtTipoPeticion" runat="server"></asp:TextBox>
+                        
+                            <div class="input-group-btn">
                                 <button type="button" id="tnLimpiarConclusionAsesoria" onclick="limpiarCampo('<%= TxtTipoPeticion.ClientID %>')"class="btn btn-default btn-medium">
                                     <i class="fa fa-close"></i>
                                 </button>
                                 <button type="button" id="tnBuscarConclusionAsesoria" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
                                     <i class="fa fa-search"></i>&nbsp;
                                 </button>
-                            </span>
+                            </div>
                         </td>
                     </tr>
                     <tr>
