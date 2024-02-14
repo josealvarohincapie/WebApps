@@ -21,7 +21,7 @@ AS
 		select 
             rad.CodigoSolicitud, tt.Codigo CodigoTipoTramite, tt.Nombre NombreTipoTramite
             , fue.Codigo CodigoFuente,fue.Nombre NombreFuente
-            , rad.Incidente
+            , rad.Incidente, rad.NumeroDocumentoIdentificacion
             , rad.NumeroRadicado, rad.Fecha, rad.Remitente
             , rad.Asunto, rad.Direccion, rad.Telefono
             , rad.CodigoEntidad, rad.NombreEntidad, rad.Correo

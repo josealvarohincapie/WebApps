@@ -72,10 +72,19 @@ public partial class RegistroDePeticionarios : System.Web.UI.Page
             if (radicados != null)
             {
                 txtNumeroRadicado.Text = radicados[0].NumeroRadicado;
+                //txtCanalAtencion = ;
                 txtTipoSolicitante.Text = radicados[0].TipoSolicitante.Nombre;
-                txtRemitente.Text = radicados[0].Remitente;
                 txtFecha.Text = radicados[0].Fecha.ToString("yyyy-MM-dd");
-
+                chkEsAnonimo.Checked = radicados[0].EsAnonimo;
+                txtTipoDocumento.Text = radicados[0].TipoDocId.Nombre;
+                txtCedula.Text = radicados[0].Cedula;
+                bool esMiembroGrupoEtnico = radicados[0].GrupoEtnicoReconoce;
+                rblGrupoEtnico.SelectedValue = esMiembroGrupoEtnico ? "Si" : "No";
+                txtSexoAsignado.Text = radicados[0].Sexo.Nombre;
+                txtIdentidadGenero.Text = radicados[0].Genero.Nombre;//no trae datos, revisar
+                txtOrientacionSexual.Text = radicados[0].OrientacionSexual.Nombre;
+                //txtExpresionGenero.Text = radicados[0].;
+                txtRangoEdad.Text = radicados[0].RangoEdad.Nombre;
             }
         } catch (Exception ex)
         {

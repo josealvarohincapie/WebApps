@@ -47,6 +47,7 @@ namespace Modelo.dto
         public CatalogoDTO DptoHechos { get; set; }
         public CatalogoDTO MunicipioHechos { get; set; }
         public CatalogoDTO Formato { get; set; }
-        public String Observaciones { get; set; } 
+        public String Observaciones { get; set; }
+        public String Cedula { get; set; }
     }
 }

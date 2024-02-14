@@ -55,6 +55,7 @@
         </div>
 
         <div id="tabs">
+        <div class="fondo">
             <ul>
                 <li><a href="#tabs-1">Información del radicado</a></li>
                 <li><a href="#tabs-2">Anexos del Radicado recibido</a></li>
@@ -114,8 +115,10 @@
                                 </span></td>
                             </tr>
                              <tr>
-                             <td>
+                             <td class="auto-style1">
                              <asp:Label ID="lblEsAnonimo" runat="server" Text="Es anónimo :"></asp:Label>
+                             </td>
+                             <td class="auto-style2">
                              <asp:CheckBox ID="chkEsAnonimo" runat="server" />
                              </td>
                              </tr>
@@ -135,10 +138,11 @@
                                     </span></td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    
+                                    <td class="auto-style1">
                                     <asp:Label ID="lblCedula" runat="server" Text="Número documento de identificación:"></asp:Label>
                                     </td>
-                                    <td>
+                                    <td class="auto-style1">
                                     <asp:TextBox ID="txtCedula" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
@@ -146,7 +150,7 @@
                                     <td class="auto-style1">
                                         <asp:Label ID="lblRemitente" runat="server" Text="Remitente:"></asp:Label>
                                     </td>
-                                    <td class="auto-style2">
+                                    <td class="auto-style1">
                                         <asp:TextBox ID="txtRemitente" runat="server" Text="Jose Alvaro Hincapié"></asp:TextBox></td>
                                  </tr>
                                  
@@ -157,9 +161,10 @@
                         <!-- Contenido de la segunda columna -->
                         <table style="width: 100%;">
                             <tr>  
-                                <td>
+                                <td class="auto-style1">
                                 <asp:Label ID="lblGrupoEtnico" runat="server" Text="¿Se reconoce como miembro de algún grupo étnico?"></asp:Label></td>
-                                <td>
+                                
+                                <td class="auto-style2">
                                 <asp:RadioButtonList ID="rblGrupoEtnico" runat="server">
                                     <asp:ListItem Text="Sí" Value="Si"></asp:ListItem>
                                     <asp:ListItem Text="No" Value="No"></asp:ListItem>
@@ -248,38 +253,70 @@
  
             </div>
             <div id="tabs-2">
-                <h2>Anexos</h2>
-               <asp:Label ID="lblMensaje" runat="server" Text="Subir anexos"></asp:Label>
-              <asp:FileUpload ID="fileUploadDocumento" runat="server" />
-              <asp:Button ID="btnSubirDocumento" runat="server" Text="Subir Documento" OnClick="btnSubirDocumento_Click" />
-
-
-            </div>
+               
+                    <h2>Anexos</h2>
+                <!--<
+                    <asp:Label ID="lblMensaje" runat="server" Text="Subir anexos"></asp:Label>
+                    <asp:FileUpload ID="fileUploadDocumento" runat="server" />
+                    <asp:Button ID="btnSubirDocumento" runat="server" Text="Subir Documento" OnClick="btnSubirDocumento_Click" />
+                    />-->
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">First</th>
+                          <th scope="col">Last</th>
+                          <th scope="col">Handle</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Larry</td>
+                          <td>the Bird</td>
+                          <td>@twitter</td>
+                        </tr>
+                      </tbody>
+                    </table>
+             </div>
             <div id="tabs-3">
+                
                 <div class="help-text">
                     ASESORÍA: La asesoría consiste en orientar al peticionario en el ejercicio y defensa de los derechos humanos, ante las autoridades competentes o ante las entidades de carácter privado.
                 </div>
-
-                <table style="width: 100%;">
+                <div display: flex; justify-content: center; align-items: center; height: 100vh;>
+                <table style="width: 20%;">
                     <tr>
                         <td class="auto-style1">
                             <asp:Label ID="LabelTipoPeticion" runat="server" Text="Tipo de petición:"></asp:Label></td>
                         <td class="auto-style2">
                             <asp:TextBox ID="TxtTipoPeticion" runat="server"></asp:TextBox>
-                        
-                            <div class="input-group-btn">
-                                <button type="button" id="tnLimpiarConclusionAsesoria" onclick="limpiarCampo('<%= TxtTipoPeticion.ClientID %>')"class="btn btn-default btn-medium">
+                        </td>
+                            <td><span class="input-group-btn">
+                                <button type="button" id="tnLimpiarConclusionAsesoria" onclick="limpiarCampo('<%= TxtTipoPeticion.ClientID %>')" class="btn btn-default btn-medium">
                                     <i class="fa fa-close"></i>
                                 </button>
                                 <button type="button" id="tnBuscarConclusionAsesoria" class="btn btn-success btn-medium btn-margin-catalogo btn-file" usehttppost="0" webapplication="" usedatasource="0">
                                     <i class="fa fa-search"></i>&nbsp;
                                 </button>
-                            </div>
-                        </td>
+                            </span></td>
+                        
                     </tr>
                     <tr>
-                        <td class="auto-style1">
-                            <div class="form-row">
+                        <td>
+                            <div class="form-row auto-style1">
                                 <asp:Label ID="LabelAreaDerecho" runat="server" Text="Área de derecho:"></asp:Label>
 
                             </div>
@@ -311,30 +348,30 @@
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="auto-style1">
                             <asp:Label ID="LabelDescripcionAsesoria" runat="server" Text="Descripción de asesoría:"></asp:Label>
                         </td>
-                        <td>
+                        <td class="auto-style2">
                             <asp:TextBox ID="TxtDescripcionAsesoria" runat="server" TextMode="MultiLine"></asp:TextBox></td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="form-row">
+                            <div class="form-row auto-style1">
                                 <asp:Label ID="LabelObservaciones" runat="server" Text="Observaciones:"></asp:Label>
 
                             </div>
                         </td>
-                        <td>
+                        <td class="auto-style2">
                             <asp:TextBox ID="TxtObservaciones" runat="server" TextMode="MultiLine" Text='<%# Bind("Observaciones") %>'></asp:TextBox></td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="auto-style1">
                             <asp:Label runat="server" Text="¿La asesoría debe generar respuesta por escrito?"></asp:Label>
 
                         </td>
-                        <td>
+                        <td class="auto-style2">
                             <div class="radio-group">
                                 <div>
                                     <asp:RadioButton ID="respuestaEscritaSi" runat="server" GroupName="respuestaEscrita" Text="Sí" />
@@ -345,11 +382,11 @@
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="auto-style1">
                             <asp:Label ID="LabelConclusionAsesoria" runat="server" CssClass="control-label col-sm-4" Text="Conclusión de asesoría:"></asp:Label>
 
                         </td>
-                        <td>
+                        <td class="auto-style2">
                             <asp:TextBox ID="txtConclusionAsesoria" runat="server" TextMode="MultiLine" Rows="4" Columns="50" Text='<%# Bind("ConclusionAsesoria") %>'></asp:TextBox></td>
                         <td>
                             <span class="input-group-btn">
@@ -362,8 +399,10 @@
                             </span></td>
                     </tr>
                 </table>
+                </div>
             </div>
-        <div id="tabs-4">
+            <div id="tabs-4">
+            
             <h2>Decisión</h2>
             <table>
                 <tr>
@@ -388,13 +427,15 @@
                     <td class="auto-style1">
                         <asp:Label ID="lblComentarios" runat="server" Text="Comentarios:"></asp:Label>
                     </td>
-                    <td class="auto-style2" colspan="2"> <!-- Ajuste para que abarque las dos columnas restantes -->
+                    <td class="auto-style2" colspan="2"> 
                         <asp:TextBox ID="txtComentarios" runat="server" TextMode="MultiLine" Rows="4" Columns="50"></asp:TextBox>
                     </td>
                 </tr>
             </table>
+            
         </div>
-</div>
+        </div>
+        </div>
     <asp:HiddenField ID="txtCodigoSolicitud" runat="server" Value="3"></asp:HiddenField>
      </form>
 </body>

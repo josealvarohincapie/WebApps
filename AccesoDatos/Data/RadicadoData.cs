@@ -74,7 +74,8 @@ namespace AccesoDatos.Data
                 data.Asunto = row["Asunto"].ToString();
                 data.Direccion = row["Direccion"].ToString();
                 data.Telefono = row["Telefono"].ToString();
-                
+                data.Cedula = row["NumeroDocumentoIdentificacion"].ToString();
+
                 data.Entidad = new CatalogoDTO();
                 data.Entidad.Codigo = row["CodigoEntidad"].ToString();
                 data.Entidad.Nombre = row["NombreEntidad"].ToString();

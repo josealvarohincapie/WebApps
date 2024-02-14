@@ -66,7 +66,7 @@ body {
     align-items: center;
 }
 
-    .btn i {
+.btn i {
         margin-right: 5px;
     }
 
@@ -201,17 +201,24 @@ body {
     justify-content: space-between;
 }
 
-    .form-row label {
+.form-row label {
         margin-right: 10px;
     }
 
-    .form-row input[type="text"], .form-row textarea {
+.form-row input[type="text"], .form-row textarea {
         flex-grow: 1;
         margin-right: 10px;
     }
 
 .input-group-btn {
-    display: flex;
+    display: flex; /* Continúa utilizando flexbox */
+    flex-direction: row; /* Alinea los hijos horizontalmente */
+   
+    justify-content: center; /* Esto centra los hijos horizontalmente en el contenedor, puedes cambiarlo a flex-start para alinear al inicio */
+    gap: 1px; /* Esto mantiene un espacio entre los hijos, ajusta según sea necesario */
+    text-align: left;
+}
+
 }
 
 .btn-medium {
@@ -225,11 +232,14 @@ body {
 
 .auto-style1 {
     width: 189px;
+    text-align: right;
+    font-weight: bold;
 }
 
 
 .auto-style2 {
-    width: 421px;
+    width: 500px;
+    text-align: right;
 }
 
 .tab {
@@ -261,4 +271,11 @@ body {
     flex: 1; /* Esto hace que ambas columnas tengan el mismo ancho */
     margin: 10px; /* Espaciado opcional entre las columnas */
 }
-     
+.fondo {
+    background-color: #d6d6d6;
+    
+    width: 100%; /* Esto hace que el elemento se extienda al ancho completo de la ventana */
+    height: 100%; /* Esto hace que el elemento se extienda al alto completo de la ventana */
+    z-index: 1000;
+
+}     
