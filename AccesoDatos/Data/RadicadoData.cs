@@ -31,6 +31,7 @@ namespace AccesoDatos.Data
 
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "spConsultarDatosRadicadoPorCodigo";
+                comando.Parameters.AddWithValue("@codigoSolicitud", codigoSolicitud);
                 comando.CommandType = CommandType.StoredProcedure;
                 leer = comando.ExecuteReader();
 
@@ -138,7 +139,7 @@ namespace AccesoDatos.Data
                 data.TipoSolicitante.Codigo = row["CodigoTipoSolicitante"].ToString();
                 data.TipoSolicitante.Nombre = row["NombreTipoSolicitante"].ToString();
 
-                data.EsAnonimo = Boolean.Parse(row["descripcion"].ToString());
+                data.EsAnonimo = Boolean.Parse(row["EsAnonimo"].ToString());
 
                 data.TipoDocId = new CatalogoDTO();
                 data.TipoDocId.Codigo = row["CodigoTipoDocId"].ToString();

@@ -6,6 +6,8 @@ using System.Web.UI.WebControls;
 using System.Collections.Generic;
 using System.IO;
 using Modelo.dto;
+using Microsoft.Ajax.Utilities;
+using System.Globalization;
 
 public partial class RegistroDePeticionarios : System.Web.UI.Page
 {
@@ -70,10 +72,16 @@ public partial class RegistroDePeticionarios : System.Web.UI.Page
             if (radicados != null)
             {
                 txtNumeroRadicado.Text = radicados[0].NumeroRadicado;
+                txtTipoSolicitante.Text = radicados[0].TipoSolicitante.Nombre;
+                txtRemitente.Text = radicados[0].Remitente;
+                txtFecha.Text = radicados[0].Fecha.ToString("yyyy-MM-dd");
+
             }
         } catch (Exception ex)
         {
-            txtNumeroRadicado.Text = "mateo dacartec";
+            //txtNumeroRadicado.Text = "mateo dacartec";
+            String error = ex.Message.Replace("'","");
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "err_msg", "alert('" + error + "');", true);
         }
     }
 }
