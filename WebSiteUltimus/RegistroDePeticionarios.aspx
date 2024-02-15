@@ -9,8 +9,12 @@
 
     <!--<link rel="stylesheet" href="~/css/FontAwesome.css" asp-append-version="true" />-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="Content/toastr.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/jquery-ui.css" rel="stylesheet" />
     <link href="Content/dashboard.css" rel="stylesheet" />
-    <link href="Content/bootstrap.css" rel="stylesheet" />
+
     <script src="Scripts/bootstrap.min.js"></script>
     <script type="text/javascript">
         function imprimirPagina() {
