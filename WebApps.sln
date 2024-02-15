@@ -3,12 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppAsesorias", "WebAppAsesorias\WebAppAsesorias.csproj", "{506880D5-5F61-424D-A939-87D7C11E11C4}"
-	ProjectSection(ProjectDependencies) = postProject
-		{64C49D03-B3DF-4574-B1EC-B9008F50D22D} = {64C49D03-B3DF-4574-B1EC-B9008F50D22D}
-		{939F80B3-7F5B-4592-88BD-15D98C6B344D} = {939F80B3-7F5B-4592-88BD-15D98C6B344D}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDatos", "AccesoDatos\AccesoDatos.csproj", "{64C49D03-B3DF-4574-B1EC-B9008F50D22D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Logica\Negocio.csproj", "{939F80B3-7F5B-4592-88BD-15D98C6B344D}"
@@ -16,9 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Logica\Negocio.c
 		{64C49D03-B3DF-4574-B1EC-B9008F50D22D} = {64C49D03-B3DF-4574-B1EC-B9008F50D22D}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppAPI", "WebAppAPI\WebAppAPI.csproj", "{AF3DA9E4-0F8C-48B5-AACE-1D61A229E732}"
-EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSiteUltimus(1)", "WebSiteUltimus\", "{45FD80F1-7BBB-48FB-88B9-13AFEFDD0561}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSiteUltimus", "WebSiteUltimus\", "{45FD80F1-7BBB-48FB-88B9-13AFEFDD0561}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8.1"
 		ProjectReferences = "{939f80b3-7f5b-4592-88bd-15d98c6b344d}|Logica.dll;{64C49D03-B3DF-4574-B1EC-B9008F50D22D}|AccesoDatos.dll;{AFAB8AE6-B400-4713-94A2-E9EFDD1C9D91}|Modelo.dll;"
@@ -49,10 +41,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{506880D5-5F61-424D-A939-87D7C11E11C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{506880D5-5F61-424D-A939-87D7C11E11C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{506880D5-5F61-424D-A939-87D7C11E11C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{506880D5-5F61-424D-A939-87D7C11E11C4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{64C49D03-B3DF-4574-B1EC-B9008F50D22D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{64C49D03-B3DF-4574-B1EC-B9008F50D22D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64C49D03-B3DF-4574-B1EC-B9008F50D22D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,10 +49,6 @@ Global
 		{939F80B3-7F5B-4592-88BD-15D98C6B344D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{939F80B3-7F5B-4592-88BD-15D98C6B344D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{939F80B3-7F5B-4592-88BD-15D98C6B344D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF3DA9E4-0F8C-48B5-AACE-1D61A229E732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF3DA9E4-0F8C-48B5-AACE-1D61A229E732}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF3DA9E4-0F8C-48B5-AACE-1D61A229E732}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF3DA9E4-0F8C-48B5-AACE-1D61A229E732}.Release|Any CPU.Build.0 = Release|Any CPU
 		{45FD80F1-7BBB-48FB-88B9-13AFEFDD0561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{45FD80F1-7BBB-48FB-88B9-13AFEFDD0561}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45FD80F1-7BBB-48FB-88B9-13AFEFDD0561}.Release|Any CPU.ActiveCfg = Debug|Any CPU
